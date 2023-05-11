@@ -1,20 +1,36 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { RouterOutlet, RouterModule } from '@angular/router';
+import { NavbarComponent } from './components/layout/navbar/navbar.component';
+import { FooterComponent } from './components/layout/footer/footer.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet],
-  template: ` <router-outlet></router-outlet> `,
+  template: `
+    <app-navbar></app-navbar>
+
+    <div class="router-outlet">
+      <router-outlet></router-outlet>
+    </div>
+
+    <app-footer></app-footer>
+  `,
   styles: [
     `
       :host {
-        max-width: 1280px;
+        max-width: 600px;
         margin: 0 auto;
-        padding: 2rem;
-        text-align: center;
+      }
+
+      .router-outlet {
+        top: 200px;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        margin-bottom: 300px;
       }
     `,
   ],
+  imports: [RouterOutlet, RouterModule, NavbarComponent, FooterComponent],
 })
 export class AppComponent {}
