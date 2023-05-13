@@ -92,7 +92,6 @@ button:focus-visible {
 }
 
 .card-container:hover {
-  cursor: pointer;
 }
 
 .card {
@@ -115,6 +114,7 @@ button:focus-visible {
 .card img {
   align-items: center;
   border-radius: 20px;
+  width: -webkit-fill-available;
 }
 
 .card h5 {
@@ -135,6 +135,7 @@ button:focus-visible {
 
 .card .more a:hover {
   font-weight: 800;
+  cursor: pointer;
 }
 
 .card p {
@@ -144,12 +145,25 @@ button:focus-visible {
   text-align: left;
 }
 
+.card.long-form h3, .card.long-form h4{
+  margin-bottom: 2em;
+}
+
+.card.long-form p {
+  line-height: 1.5em;
+  font-size: larger;
+}
+
 .tags {
   color: #666666;
   font-family: monospace;
   font-size: 12px;
   text-align: center;
   transition: opacity linear 0.12s;
+}
+
+.tags .tag:hover {
+  cursor: pointer;
 }
 
 .logo {

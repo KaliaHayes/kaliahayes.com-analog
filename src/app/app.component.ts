@@ -28,6 +28,7 @@ import { FooterComponent } from './components/layout/footer/footer.component';
         display: flex;
         justify-content: center;
         margin-bottom: 300px;
+        min-height: calc(100vh - 375px);
       }
     `,
   ],

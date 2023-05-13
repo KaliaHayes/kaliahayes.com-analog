@@ -5,9 +5,11 @@ import { CommonModule, NgForOf } from '@angular/common';
   selector: 'app-footer',
   standalone: true,
   imports: [CommonModule],
-  templateUrl: './footer.component.html',
-  styleUrls: ['./footer.component.css']
+  template: `
+    <div class="small shimmer" style="text-align: center; margin-bottom: 50px;">
+      <p>goodbye world</p>
+    </div>
+  `,
+  styles: [],
 })
-export class FooterComponent {
-
-}
+export class FooterComponent {}

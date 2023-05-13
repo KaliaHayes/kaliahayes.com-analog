@@ -2,13 +2,13 @@
     <div class="card" [style.border-color]="onHover ? blog.accentColor : ''">
         <!-- <img [src]="blog.imageUrl" alt=""> -->
         <h5>
-            {{ blog.name }}
+            {{ blog.attributes.name }}
         </h5>
         <p>
-            {{ blog.description }}
+            {{ blog.attributes.description }}
         </p>
         <p class="more">
-            <a [style.color]=" blog.accentColor" href="{{ blog.source }}" target="_blank">
+            <a [style.color]=" blog.accentColor" [routerLink]="['/blog/' + blog.slug]">
                 <i class="fa fa-external-link"></i>
                 <span>Read More</span>
             </a>
@@ -16,7 +16,7 @@
     </div>
     <div class="spacer-5"></div>
     <div class="tags" [style.opacity]="onHover ? '1' : '0'">
-        <span *ngFor="let tag of blog.tags">
+        <span *ngFor="let tag of blog.attributes.tags">
             #{{ tag }}
         </span>
     </div>
