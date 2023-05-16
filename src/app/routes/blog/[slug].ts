@@ -32,7 +32,7 @@ export default class BlogPostPageComponent implements OnInit {
 
   ngOnInit(): void {
     this.blogs$.subscribe((blog) => {
-      console.log('blog', blog);
+      // console.log('blog', blog);
     });
   }
 }

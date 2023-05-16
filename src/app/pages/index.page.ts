@@ -75,8 +75,8 @@ export default class HomeComponent implements OnInit {
   featuredBlogs = injectContentFiles<ProjectAttributes>(this.blogsFilterFn);
 
   ngOnInit() {
-    console.log(this.featuredProjects);
-    console.log(this.featuredBlogs);
+    // console.log(this.featuredProjects);
+    // console.log(this.featuredBlogs);
     this.getContentMetadata();
   }
 

@@ -26,7 +26,7 @@ export default class ProjectsListComponent implements OnInit {
 
   ngOnInit() {
     this.getContentMetadata();
-    console.log(this.projects);
+    // console.log(this.projects);
   }
 
   getContentMetadata() {

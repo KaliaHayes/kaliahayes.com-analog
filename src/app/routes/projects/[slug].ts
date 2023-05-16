@@ -29,7 +29,7 @@ import { ProjectAttributes } from './projects.model';
   
     ngOnInit(): void {
       this.project$.subscribe((project) => {
-        console.log('project', project);
+        // console.log('project', project);
       });
     }
   }

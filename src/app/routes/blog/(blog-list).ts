@@ -26,7 +26,7 @@ export default class BlogListComponent implements OnInit {
 
   ngOnInit() {
     this.getContentMetadata();
-    console.log(this.blogs);
+    // console.log(this.blogs);
   }
 
   getContentMetadata() {

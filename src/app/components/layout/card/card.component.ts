@@ -66,6 +66,6 @@ export class CardComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log('card-component', this.content);
+    // console.log('card-component', this.content);
   }
 }
