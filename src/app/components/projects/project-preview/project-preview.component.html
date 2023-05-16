@@ -1,7 +1,7 @@
 <div class="card-container" (mouseenter)="toggleHoverState()" (mouseleave)="toggleHoverState()">
     <div class="card" [style.cursor]="'pointer'" [style.border-color]="onHover ? project.accentColor : ''" [routerLink]="['/projects/' + project.slug]">
         <img [src]="project.attributes?.imageUrl" alt="">
-        <h5>
+        <h5 class="card-title">
             {{ project.attributes?.name }}
         </h5>
         <p>

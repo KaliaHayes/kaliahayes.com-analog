@@ -15,7 +15,7 @@ import { RouterModule } from '@angular/router';
             routerLink="/"
             routerLinkActive="router-link-active"
           >
-            <img src="/Images/Memoji.png" alt="Kalia Hayes's Memoji'" />
+            <img src="/images/Memoji.png" alt="Kalia Hayes's Memoji'" />
           </a>
         </div>
 

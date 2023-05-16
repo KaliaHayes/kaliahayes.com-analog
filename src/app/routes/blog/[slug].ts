@@ -10,7 +10,7 @@ import { BlogAttributes } from './blog.model';
   standalone: true,
   imports: [MarkdownComponent, AsyncPipe, NgIf, JsonPipe],
   template: `
-    <div *ngIf="blogs$ | async as blog" class="card long-form">
+    <div *ngIf="blogs$ | async as blog" class="card blog long-form">
       <ng-container>
         <h1>{{ blog.attributes.name }}</h1>
         <hr />

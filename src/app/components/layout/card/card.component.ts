@@ -24,7 +24,7 @@ import { RouterModule } from '@angular/router';
           [src]="content.attributes?.imageUrl"
           alt=""
         />
-        <h5>
+        <h5 class="card-title">
           {{ content.attributes?.name }}
         </h5>
         <p>

@@ -1,7 +1,7 @@
 <div class="card-container" (mouseenter)="toggleHoverState()" (mouseleave)="toggleHoverState()">
     <div class="card" [style.border-color]="onHover ? blog.accentColor : ''">
         <!-- <img [src]="blog.imageUrl" alt=""> -->
-        <h5>
+        <h5 class="card-title">
             {{ blog.attributes.name }}
         </h5>
         <p>
