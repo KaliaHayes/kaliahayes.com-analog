@@ -12,7 +12,7 @@ This is some `inline code`
 
 <mark>Laserwave</mark>
 
-![cotton-candy](/images/Laserwave.png)
+![cotton-candy](/imgs/Laserwave.png)
 
 ```css
 code[class*="language-"],
@@ -137,7 +137,7 @@ pre[class*="language-"] {
 
 <mark> Cotton Candy</mark>
 
-![cotton-candy](/images/Cotton-Candy.png)
+![cotton-candy](/imgs/Cotton-Candy.png)
 
 ```css
 code[class*="language-"],
@@ -276,7 +276,7 @@ pre[class*="language-"] {
 
 <mark>Kolada</mark>
 
-![Kolada](/images/Kolada.png)
+![Kolada](/imgs/Kolada.png)
 
 ```css
 
