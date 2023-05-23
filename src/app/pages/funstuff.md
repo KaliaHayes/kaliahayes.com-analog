@@ -7,7 +7,7 @@ meta:
     content: About2
 ---
 
-## !! Fun Stuff
+## !! Fun Stuff MD
 
 Analog is a meta-framework for Angular.
 

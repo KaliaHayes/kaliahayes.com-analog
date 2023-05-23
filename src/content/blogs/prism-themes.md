@@ -1,7 +1,7 @@
 ---
 name: Prism.js Themes
 date: 2023-05-13
-description: A list of beautiful themes for Prism.js
+description: the secret sauce
 slug: prism-themes
 featured: true
 tags: ["markdown", "prism.js", "resource", "themes"]

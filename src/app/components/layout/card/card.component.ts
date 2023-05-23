@@ -16,7 +16,6 @@ import { RouterModule } from '@angular/router';
         class="card"
         [style.cursor]="'pointer'"
         [style.border-color]="onHover ? content.accentColor : ''"
-        [routerLink]="['/' + content.slug]"
         [routerLink]="['/' + content.route + '/' + content.slug]"
       >
         <img
