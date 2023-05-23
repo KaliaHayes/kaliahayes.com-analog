@@ -23,7 +23,7 @@ import { FooterComponent } from './components/layout/footer/footer.component';
       }
 
       .router-outlet {
-        top: 200px;
+        top: 150px;
         position: relative;
         display: flex;
         justify-content: center;

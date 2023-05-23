@@ -68,7 +68,7 @@ import { RouterModule } from '@angular/router';
       position: fixed;
       width: -webkit-fill-available;
       z-index: 10000;
-      top: 100px;
+      top: 50px;
       display: flex;
       justify-content: center;
     }
