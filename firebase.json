@@ -13,7 +13,7 @@
     }
   ],
   "hosting": {
-    "site": "kaliahayes-com-analog",
+    "site": "kaliahayes-com-analog-ddd87",
     "public": "dist/analog/public",
     "ignore": [
       "firebase.json",
