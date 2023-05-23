@@ -1,59 +1,43 @@
 import { Component, OnInit } from '@angular/core';
-import { ProjectPreviewComponent } from '../components/projects/project-preview/project-preview.component';
-import { NgForOf } from '@angular/common';
+import { CommonModule, NgForOf } from '@angular/common';
 import { injectContentFiles } from '@analogjs/content';
 import { InjectContentFilesFilterFunction } from '@analogjs/content/lib/inject-content-files';
 import { ProjectAttributes } from '../routes/projects/projects.model';
-import { BlogAttributes } from '../routes/blog/blog.model';
-import { BlogPreviewComponent } from '../components/blogs/blog-preview/blog-preview.component';
+import { CardComponent } from "../components/layout/card/card.component";
 
 @Component({
-  selector: 'app-home',
-  standalone: true,
-  template: `
+    selector: 'app-home',
+    standalone: true,
+    template: `
     <!-- About Me -->
     <div class="card intro">
       <p>
-        👋 Hey there! I’m Kalia Hayes. I’m a Dallas, TX based Software Developer
-        @ Citi focused on engineering an AI/ML Automation Platform we like to
-        call PUMA. 🐆
+        Consequat exercitation amet duis ea non id duis officia ex. Enim
+        consectetur quis laborum reprehenderit aliqua mollit veniam laborum
+        irure laborum pariatur pariatur nostrud. Nostrud adipisicing esse qui
+        magna labore cupidatat magna ex nostrud nulla laboris minim. Aliquip
+        fugiat mollit culpa enim exercitation ad.
       </p>
       <br />
       <p>
-        Feel free to check out my little corners of the internet & other
-        projects below! Definitely reach out if you’d like to connect or
-        collaborate – I’m currently on the lookout for new open-source
-        opportunities, so let’s chat! 💻🤝
-      </p>
-      <br />
-      <p>If you’re interested in learning more about me, I ramble on here.</p>
-      <br />
-      <p>
-        Interests: #frontend #ui design #automation #dallas cowboys #product
-        ideation #emerging tech #learning french #gaming #retrofuturism #twitch
-        #design trends #VS Code themes
-      </p>
-      <br />
-      <p>
-        Tools & Tech: #angular #typescript #node #cheerio #figma #adobe xd
-        #firebase #mongodb #notion #ionic #chart.js #scully
+        Consequat exercitation amet duis ea non id duis officia ex. Enim
+        consectetur quis laborum reprehenderit aliqua mollit veniam laborum
+        irure laborum pariatur pariatur nostrud. Nostrud adipisicing esse qui
+        magna labore cupidatat magna ex nostrud nulla laboris minim. Aliquip
+        fugiat mollit culpa enim exercitation ad.
       </p>
     </div>
 
     <p class="shimmer section-heading">featured projects</p>
-    <app-project-preview
-      [project]="project"
-      *ngFor="let project of featuredProjects"
-    ></app-project-preview>
+    <app-card *ngFor="let project of featuredProjects" [content]="project"></app-card>
+
 
     <p class="shimmer section-heading">latest blogs</p>
-    <app-blog-preview
-      [blog]="blog"
-      *ngFor="let blog of featuredBlogs"
-    ></app-blog-preview>
+    <app-card *ngFor="let blog of featuredBlogs" [content]="blog"></app-card>
+
   `,
-  styles: [``],
-  imports: [ProjectPreviewComponent, BlogPreviewComponent, NgForOf],
+    styles: [``],
+    imports: [CommonModule, NgForOf, CardComponent]
 })
 export default class HomeComponent implements OnInit {
   colors: string[] = ['#F48FDD', '#8FB6F2', '#C490FA', '#FEBB8E'];
@@ -75,14 +59,13 @@ export default class HomeComponent implements OnInit {
   featuredBlogs = injectContentFiles<ProjectAttributes>(this.blogsFilterFn);
 
   ngOnInit() {
-    // console.log(this.featuredProjects);
-    // console.log(this.featuredBlogs);
     this.getContentMetadata();
   }
 
   getContentMetadata() {
     // continously loop through the colors array
     // and assign the color to the project as 'accentColor'
+    // minimize, condense + move this to a service... eventually :)
     this.featuredProjects = this.featuredProjects.map(
       (project: any, index: number) => {
         return {

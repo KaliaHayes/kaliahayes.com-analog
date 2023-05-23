@@ -2,7 +2,7 @@
 name: Lorem Ipsum Dolor Sit Amet444
 description: Lorem Ipsum Dolor Sit Amet Lorem Ipsum Dolor Sit Amet Lorem Ipsum Dolor Sit Amet Lorem Ipsum Dolor Sit Amet Lorem Ipsum Dolor Sit Amet
 source: "https://angular.io"
-imageUrl: https://imgs.pexels.com/photos/433989/pexels-photo-433989.jpeg?auto=compress&cs=tinysrgb&w=1600
+imageUrl: https://cdn.dribbble.com/users/1787150/screenshots/14456637/media/97ad3dc892988d8fc7955b13f589d5a6.jpg?compress=1&resize=1600x1200&vertical=top
 tags: ["angular", "navigation", "sidebar", "dark mode"]
 slug: test-project-4
 featured: true
