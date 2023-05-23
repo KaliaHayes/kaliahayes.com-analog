@@ -41,6 +41,6 @@ testem.log
 .DS_Store
 Thumbs.db
 
-# Blogs that I didn't write lol
-src/content/blogs/2023-01-20-mastering-angular-structural-directives-the-basics.md
-src/content/blogs/2023-02-06-mastering-angular-structural-directives-its-all-about-the-context.md
+# Logs
+firebase-debug.log
+ui-debug.log
