@@ -50,57 +50,60 @@ import { RouterModule } from '@angular/router';
     </div>
   `,
   styles: [
-    `.nav {
-      height: 80px;
-      color: #fff;
-      display: flex;
-      border-radius: 20px;
-      max-width: 600px;
-      align-items: center;
-      width: inherit;
-      border: 1px solid #151515;
-      background: rgba(0, 0, 0, 0.75);
-      backdrop-filter: blur(2px);
-      -webkit-backdrop-filter: blur(1px);
-    }
-    
-    .nav-wrapper {
-      position: fixed;
-      width: -webkit-fill-available;
-      z-index: 10000;
-      top: 50px;
-      display: flex;
-      justify-content: center;
-    }
-    
-    .nav img {
-      height: 60px;
-      border-radius: 100px;
-    }
-    
-    .img-container {
-      height: 100%;
-      padding: 10px 15px;
-      border-right: 1px solid #151515;
-      width: 105px;
-    }
-    
-    .nav-items {
-      justify-content: space-around;
-      width: -webkit-fill-available;
-    }
-
-    .nav-items a {
-      color: #fff;
-    }
-    
-    .nav-items p {
-      text-transform: lowercase;
-      font-weight: 700;
-      font-size: 0.75rem !important;
-      cursor: pointer;
-    }
     `
+      .nav {
+        height: 80px;
+        color: #fff;
+        display: flex;
+        border-radius: 20px;
+        max-width: 600px;
+        align-items: center;
+        width: 96vw;
+        border: 1px solid #151515;
+        background: rgba(0, 0, 0, 0.75);
+        backdrop-filter: blur(2px);
+        -webkit-backdrop-filter: blur(1px);
+      }
+
+      .nav-wrapper {
+        position: fixed;
+        width: -webkit-fill-available;
+        z-index: 10000;
+        top: 50px;
+        display: flex;
+        justify-content: center;
+      }
+
+      .nav img {
+        height: 60px;
+        border-radius: 100px;
+      }
+
+      .img-container {
+        height: 100%;
+        border-right: 1px solid #151515;
+        width: 105px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .nav-items {
+        justify-content: space-around;
+        width: -webkit-fill-available;
+      }
+
+      .nav-items a {
+        color: #fff;
+      }
+
+      .nav-items p {
+        text-transform: lowercase;
+        font-weight: 700;
+        font-size: 0.75rem !important;
+        cursor: pointer;
+      }
+    `,
   ],
 })
 export class NavbarComponent {}
