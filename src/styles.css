@@ -565,19 +565,15 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
-.card-container:hover {
-}
-
 .card {
-  padding: 2em 2em 2em 2em;
+  padding: 2em;
   height: auto;
   color: #fff;
   display: flex;
   border-radius: 1em;
-  max-width: 600px;
-  width: auto;
+  max-width: 96vw;
+  width: 600px;
   display: block;
-  width: inherit;
   border: 1px solid #151515;
   background: rgba(0, 0, 0, 0.75);
   backdrop-filter: blur(2px);
@@ -627,7 +623,6 @@ button:focus-visible {
 .card-title {
   margin-top: 0 !important;
   margin-bottom: 0.2em;
-
 }
 
 .tags {
@@ -810,10 +805,6 @@ button:focus-visible {
   text-align: left;
 }
 
-.blog {
-  max-width: 600px;
-}
-
 .card pre {
   max-width: 600px;
   overflow: scroll;
@@ -837,4 +828,24 @@ ul li::before {
 blockquote {
   border-left: 5px solid white;
   padding: 0 1em;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media screen and (max-width: 600px) {
+  .nav-items {
+    display: none;
+  }
 }
