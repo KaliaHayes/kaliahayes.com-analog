@@ -1001,7 +1001,7 @@ blockquote {
   }
 
   .expanded {
-    height: 90vh;
+    height: 95vh;
     flex-direction: column;
   }
 }
