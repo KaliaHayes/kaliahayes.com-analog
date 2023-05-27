@@ -1,16 +1,21 @@
-import { Component, Input, OnInit, computed, signal } from '@angular/core';
+import {
+  Component,
+  Inject,
+  Input,
+  OnInit,
+  computed,
+  signal,
+} from '@angular/core';
 import { CommonModule, NgForOf } from '@angular/common';
-import { RouterModule } from '@angular/router';
+import { RouterModule, RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
   standalone: true,
-  imports: [CommonModule, NgForOf, RouterModule],
+  imports: [CommonModule, NgForOf, RouterModule, RouterOutlet],
   templateUrl: 'navbar.component.html',
   styles: [
     `
-
-
       .hamburger {
         display: none;
       }
@@ -47,7 +52,8 @@ import { RouterModule } from '@angular/router';
         width: -webkit-stretch;
       }
 
-      .nav-items a, .mobile-nav-items a{
+      .nav-items a,
+      .mobile-nav-items a {
         color: #fff;
       }
 
@@ -66,25 +72,20 @@ import { RouterModule } from '@angular/router';
         max-width: 600px;
       }
 
-      
+      .mobile-nav-items button:hover {
+        border-color: #00000000;
+        background-color: #6262625e;
+      }
     `,
   ],
 })
 export class NavbarComponent {
-  // @Input() expanded: boolean = false;
-
-  // expandNavbar() {
-  //   this.expanded = !this.expanded;
-  // }
-
-  // create a new signal, expanded, that is false by default
-  // create a function that toggles the signal
-
   expanded = signal(false);
 
   navbarClass = computed(() => {
     return this.expanded() ? 'nav expanded' : 'nav';
   });
+
 
   expandNavbar() {
     this.expanded.set(!this.expanded());

@@ -42,22 +42,22 @@
         </div>
 
         <div *ngIf="this.expanded()" class="mobile-nav-items">
-            <a [routerLink]="['/projects']" routerLinkActive="router-link-active">
+            <a [routerLink]="['/projects']" (click)="expandNavbar()" routerLinkActive="router-link-active">
                 <button type="button">
                     <p title="Projects">Projects</p>
                 </button>
             </a>
-            <a [routerLink]="['/funstuff']" routerLinkActive="router-link-active">
+            <a [routerLink]="['/funstuff']" (click)="expandNavbar()" routerLinkActive="router-link-active">
                 <button type="button">
                     <p title="Fun Stuff">Fun Stuff</p>
                 </button>
             </a>
-            <a [routerLink]="['/blog']" routerLinkActive="router-link-active">
+            <a [routerLink]="['/blog']" (click)="expandNavbar()" routerLinkActive="router-link-active">
                 <button type="button">
                     <p title="Blog">Blog</p>
                 </button>
             </a>
-            <a [routerLink]="['/contact']" routerLinkActive="router-link-active">
+            <a [routerLink]="['/contact']" (click)="expandNavbar()" routerLinkActive="router-link-active">
                 <button type="button">
                     <p title="Contact">Contact</p>
                 </button>
