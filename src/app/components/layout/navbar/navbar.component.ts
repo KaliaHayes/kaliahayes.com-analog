@@ -47,7 +47,7 @@ import { RouterModule } from '@angular/router';
         width: -webkit-stretch;
       }
 
-      .nav-items a {
+      .nav-items a, .mobile-nav-items a{
         color: #fff;
       }
 

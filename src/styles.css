@@ -982,24 +982,26 @@ blockquote {
   }
 
   .nav-wrapper {
-    top: 20px !important;
+    top: 10px !important;
   }
 
   .router-outlet {
-    top: 120px !important;
+    top: 110px !important;
   }
 
   .row-1 {
     align-items: flex-start !important;
   }
 
-  .mobile-menu-items {
+  .mobile-nav-items {
     align-self: center;
     display: flex;
+    flex-direction: column;
+    margin-top: 50%;
   }
 
   .expanded {
-    height: 97vh;
+    height: 90vh;
     flex-direction: column;
   }
 }
@@ -1037,8 +1039,12 @@ blockquote {
     height: 80px !important;
   }
 
-  .mobile-menu-items {
+  .mobile-nav-items {
     align-self: center;
     display: none;
+  }
+
+  .row-1 {
+    height: inherit;
   }
 }
