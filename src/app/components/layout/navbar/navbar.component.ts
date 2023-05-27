@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, computed, signal } from '@angular/core';
 import { CommonModule, NgForOf } from '@angular/common';
 import { RouterModule } from '@angular/router';
 
@@ -6,68 +6,27 @@ import { RouterModule } from '@angular/router';
   selector: 'app-navbar',
   standalone: true,
   imports: [CommonModule, NgForOf, RouterModule],
-  template: `
-    <div class="nav-wrapper">
-      <div class="nav">
-        <div class="img-container">
-          <a
-            aria-label="Home"
-            routerLink="/"
-            routerLinkActive="router-link-active"
-          >
-            <img src="/imgs/Memoji.png" alt="Kalia Hayes's Memoji'" />
-          </a>
-        </div>
-
-        <div class="flex nav-items">
-          <!-- <a [routerLink]="['/about']" routerLinkActive="router-link-active">
-                <button type="button">
-                    <p title="About">About</p>
-                </button>
-            </a> -->
-          <a [routerLink]="['/projects']" routerLinkActive="router-link-active">
-            <button type="button">
-              <p title="Projects">Projects</p>
-            </button>
-          </a>
-          <a [routerLink]="['/funstuff']" routerLinkActive="router-link-active">
-            <button type="button">
-              <p title="Fun Stuff">Fun Stuff</p>
-            </button>
-          </a>
-          <a [routerLink]="['/blog']" routerLinkActive="router-link-active">
-            <button type="button">
-              <p title="Blog">Blog</p>
-            </button>
-          </a>
-          <a [routerLink]="['/contact']" routerLinkActive="router-link-active">
-            <button type="button">
-              <p title="Contact">Contact</p>
-            </button>
-          </a>
-        </div>
-      </div>
-    </div>
-  `,
+  templateUrl: 'navbar.component.html',
   styles: [
     `
-      .nav {
-        height: 80px;
-        color: #fff;
-        display: flex;
-        border-radius: 20px;
-        max-width: 600px;
-        align-items: center;
-        width: 96vw;
-        border: 1px solid #151515;
-        background: rgba(0, 0, 0, 0.75);
-        backdrop-filter: blur(2px);
-        -webkit-backdrop-filter: blur(1px);
+
+
+      .hamburger {
+        display: none;
+      }
+
+      .hamburger-btn {
+        padding: 24px 30px;
       }
 
       .nav-wrapper {
         position: fixed;
+        width: 100%;
+        width: -moz-available;
+        width: -webkit-stretch;
         width: -webkit-fill-available;
+        width: stretch;
+        width: -webkit-stretch;
         z-index: 10000;
         top: 50px;
         display: flex;
@@ -79,18 +38,13 @@ import { RouterModule } from '@angular/router';
         border-radius: 100px;
       }
 
-      .img-container {
-        height: 100%;
-        border-right: 1px solid #151515;
-        width: 105px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-
       .nav-items {
         justify-content: space-around;
-        width: -webkit-fill-available;
+        width: 100%;
+        width: -moz-available;
+        width: -webkit-stretch;
+        width: stretch;
+        width: -webkit-stretch;
       }
 
       .nav-items a {
@@ -103,7 +57,36 @@ import { RouterModule } from '@angular/router';
         font-size: 0.75rem !important;
         cursor: pointer;
       }
+
+      .row-1 {
+        align-items: center;
+        display: flex;
+        /* height: 100%; */
+        width: inherit;
+        max-width: 600px;
+      }
+
+      
     `,
   ],
 })
-export class NavbarComponent {}
+export class NavbarComponent {
+  // @Input() expanded: boolean = false;
+
+  // expandNavbar() {
+  //   this.expanded = !this.expanded;
+  // }
+
+  // create a new signal, expanded, that is false by default
+  // create a function that toggles the signal
+
+  expanded = signal(false);
+
+  navbarClass = computed(() => {
+    return this.expanded() ? 'nav expanded' : 'nav';
+  });
+
+  expandNavbar() {
+    this.expanded.set(!this.expanded());
+  }
+}
