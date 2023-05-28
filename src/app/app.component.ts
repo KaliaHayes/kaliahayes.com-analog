@@ -1,5 +1,10 @@
-import { Component } from '@angular/core';
-import { RouterOutlet, RouterModule } from '@angular/router';
+import { Component, OnInit, signal } from '@angular/core';
+import {
+  RouterOutlet,
+  RouterModule,
+  Router,
+  NavigationEnd,
+} from '@angular/router';
 import { NavbarComponent } from './components/layout/navbar/navbar.component';
 import { FooterComponent } from './components/layout/footer/footer.component';
 
@@ -34,4 +39,10 @@ import { FooterComponent } from './components/layout/footer/footer.component';
   ],
   imports: [RouterOutlet, RouterModule, NavbarComponent, FooterComponent],
 })
-export class AppComponent {}
+export class AppComponent implements OnInit {
+  constructor(private router: Router) {}
+
+  ngOnInit() {
+   
+  }
+}
