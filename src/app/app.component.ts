@@ -42,18 +42,7 @@ import { FooterComponent } from './components/layout/footer/footer.component';
 export class AppComponent implements OnInit {
   constructor(private router: Router) {}
 
-  navigated = signal(false);
-
   ngOnInit() {
-    // this.router.events.subscribe((event) => console.log(event));
-    // console.log(this.router.navigated);
-
-    /// console log Navigation End
-    this.router.events.subscribe((event) => {
-      if (event instanceof NavigationEnd) {
-        // console.log('NavigationEnd', event);
-        this.navigated.set(true);
-      }
-    });
+   
   }
 }

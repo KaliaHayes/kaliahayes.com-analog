@@ -1,13 +1,12 @@
 import {
   Component,
-  Inject,
-  Input,
   OnInit,
   computed,
+  inject,
   signal,
 } from '@angular/core';
 import { CommonModule, NgForOf } from '@angular/common';
-import { RouterModule, RouterOutlet } from '@angular/router';
+import { NavigationEnd, Router, RouterModule, RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
@@ -64,7 +63,7 @@ import { RouterModule, RouterOutlet } from '@angular/router';
         cursor: pointer;
       }
 
-      .row-1 {
+      .desktop-nav-items {
         align-items: center;
         display: flex;
         /* height: 100%; */
@@ -79,13 +78,21 @@ import { RouterModule, RouterOutlet } from '@angular/router';
     `,
   ],
 })
-export class NavbarComponent {
+export class NavbarComponent implements OnInit {
+  router = inject(Router);
   expanded = signal(false);
 
   navbarClass = computed(() => {
     return this.expanded() ? 'nav expanded' : 'nav';
   });
 
+  ngOnInit(): void {
+    this.router.events.subscribe((event) => {
+      if (event instanceof NavigationEnd) {
+        this.expanded.set(false);
+      }
+    });
+  }
 
   expandNavbar() {
     this.expanded.set(!this.expanded());

@@ -989,7 +989,7 @@ blockquote {
     top: 110px !important;
   }
 
-  .row-1 {
+  .desktop-nav-items {
     align-items: flex-start !important;
   }
 
@@ -1044,7 +1044,7 @@ blockquote {
     display: none;
   }
 
-  .row-1 {
+  .desktop-nav-items {
     height: inherit;
   }
 }
