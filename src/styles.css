@@ -167,6 +167,49 @@ table {
   /* 3 */
 }
 
+table :is(td, th) {
+  border: 1px solid white;
+  padding: 0.5em;
+}
+
+thead tr:first-of-type {
+  background: -webkit-gradient(
+    linear,
+    left top,
+    right top,
+    from(#a1c0f5),
+    to(#e28db8),
+    color-stop(0.5, #edb69a)
+  );
+}
+
+tr:nth-child(even) {
+  background-color: #1f1f1f;
+}
+tr:nth-child(odd) {
+  background-color: black;
+}
+
+.pink {
+  color: #f48fdd;
+}
+
+.blue {
+  color: #8fb6f2;
+}
+
+.purple {
+  color: #c490fa;
+}
+
+.peach {
+  color: #febb8e;
+}
+
+.bold {
+  font-weight: 700;
+}
+
 /*
 1. Change the font styles in all browsers.
 2. Remove the margin in Firefox and Safari.
@@ -832,8 +875,8 @@ button:focus-visible {
 }
 
 .intro p {
-  line-height: 17px;
-  font-size: small;
+  line-height: 1.25em;
+  font-size: 0.95em;
   text-align: left;
   color: white;
 }
@@ -939,6 +982,7 @@ ul li::before {
 blockquote {
   border-left: 5px solid white;
   padding: 0 1em;
+  margin-inline-start: 1em;
 }
 
 /* Mobile */
