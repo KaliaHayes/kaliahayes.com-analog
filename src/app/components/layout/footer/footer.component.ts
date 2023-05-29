@@ -14,7 +14,7 @@ import { CommonModule, NgForOf } from '@angular/common';
     `
       .footer {
         text-align: center;
-        width: 600px;
+        max-width: 600px;
         margin: 50px auto;
       }
     `,

@@ -742,7 +742,7 @@ button:focus-visible {
 }
 
 .card .more {
-  margin-top: 12px;
+  margin-top: 1.5em;
   transition: color linear 0.12s;
 }
 
@@ -876,7 +876,7 @@ button:focus-visible {
 
 .intro p {
   line-height: 1.25em;
-  font-size: 0.95em;
+  font-size: 0.925em;
   text-align: left;
   color: white;
 }
