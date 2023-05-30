@@ -244,6 +244,11 @@ select {
   text-transform: none;
 }
 
+button.hamburger-btn:focus, button.hamburger-btn:focus-visible, button.hamburger-btn:active, button.hamburger-btn:hover {
+  border: 1px solid black;
+  outline: none;
+}
+
 /*
 1. Correct the inability to style clickable types in iOS and Safari.
 2. Remove default button styles.
@@ -983,6 +988,30 @@ blockquote {
   border-left: 5px solid white;
   padding: 0 1em;
   margin-inline-start: 1em;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="number"],
+input[type="tel"],
+input[type="url"],
+input[type="search"],
+textarea,
+select {
+  width: -webkit-fill-available;
+  width: -moz-available;
+  width: -webkit-stretch;
+  width: stretch;
+  padding: 5px 10px;
+  border-radius: 5px;
+  border: 1px solid #151515;
+  background: black;
+
+  width: 100%;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+  line-height: 1.5;
 }
 
 /* Mobile */

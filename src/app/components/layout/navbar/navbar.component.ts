@@ -90,6 +90,7 @@ export class NavbarComponent implements OnInit {
     this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
         this.expanded.set(false);
+        window.scrollTo(0, 0)
       }
     });
   }
