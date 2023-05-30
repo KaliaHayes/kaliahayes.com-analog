@@ -167,6 +167,49 @@ table {
   /* 3 */
 }
 
+table :is(td, th) {
+  border: 1px solid white;
+  padding: 0.5em;
+}
+
+thead tr:first-of-type {
+  background: -webkit-gradient(
+    linear,
+    left top,
+    right top,
+    from(#a1c0f5),
+    to(#e28db8),
+    color-stop(0.5, #edb69a)
+  );
+}
+
+tr:nth-child(even) {
+  background-color: #1f1f1f;
+}
+tr:nth-child(odd) {
+  background-color: black;
+}
+
+.pink {
+  color: #f48fdd;
+}
+
+.blue {
+  color: #8fb6f2;
+}
+
+.purple {
+  color: #c490fa;
+}
+
+.peach {
+  color: #febb8e;
+}
+
+.bold {
+  font-weight: 700;
+}
+
 /*
 1. Change the font styles in all browsers.
 2. Remove the margin in Firefox and Safari.
@@ -199,6 +242,11 @@ Remove the inheritance of text transform in Edge and Firefox.
 button,
 select {
   text-transform: none;
+}
+
+button.hamburger-btn:focus, button.hamburger-btn:focus-visible, button.hamburger-btn:active, button.hamburger-btn:hover {
+  border: 1px solid black;
+  outline: none;
 }
 
 /*
@@ -699,7 +747,7 @@ button:focus-visible {
 }
 
 .card .more {
-  margin-top: 12px;
+  margin-top: 1.5em;
   transition: color linear 0.12s;
 }
 
@@ -832,8 +880,8 @@ button:focus-visible {
 }
 
 .intro p {
-  line-height: 17px;
-  font-size: small;
+  line-height: 1.25em;
+  font-size: 0.925em;
   text-align: left;
   color: white;
 }
@@ -939,6 +987,31 @@ ul li::before {
 blockquote {
   border-left: 5px solid white;
   padding: 0 1em;
+  margin-inline-start: 1em;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="number"],
+input[type="tel"],
+input[type="url"],
+input[type="search"],
+textarea,
+select {
+  width: -webkit-fill-available;
+  width: -moz-available;
+  width: -webkit-stretch;
+  width: stretch;
+  padding: 5px 10px;
+  border-radius: 5px;
+  border: 1px solid #151515;
+  background: black;
+
+  width: 100%;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+  line-height: 1.5;
 }
 
 /* Mobile */

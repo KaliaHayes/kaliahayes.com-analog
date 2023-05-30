@@ -6,10 +6,18 @@ import { CommonModule, NgForOf } from '@angular/common';
   standalone: true,
   imports: [CommonModule],
   template: `
-    <div class="small shimmer" style="text-align: center; margin-bottom: 50px;">
+    <div class="small shimmer footer">
       <p>goodbye world</p>
     </div>
   `,
-  styles: [],
+  styles: [
+    `
+      .footer {
+        text-align: center;
+        max-width: 600px;
+        margin: 50px auto;
+      }
+    `,
+  ],
 })
 export class FooterComponent {}

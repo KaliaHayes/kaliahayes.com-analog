@@ -6,12 +6,12 @@ import { ProjectAttributes } from '../routes/projects/projects.model';
 import { CardComponent } from "../components/layout/card/card.component";
 
 @Component({
-    selector: 'app-home',
-    standalone: true,
-    template: `
+  selector: 'app-home',
+  standalone: true,
+  template: `
     <!-- About Me -->
     <div class="card intro">
-      <p>
+      <!-- <p>
         Consequat exercitation amet duis ea non id duis officia ex. Enim
         consectetur quis laborum reprehenderit aliqua mollit veniam laborum
         irure laborum pariatur pariatur nostrud. Nostrud adipisicing esse qui
@@ -25,8 +25,37 @@ import { CardComponent } from "../components/layout/card/card.component";
         irure laborum pariatur pariatur nostrud. Nostrud adipisicing esse qui
         magna labore cupidatat magna ex nostrud nulla laboris minim. Aliquip
         fugiat mollit culpa enim exercitation ad.
+      </p> -->
+
+      <p>
+        👋 Hello! I’m <span class="pink bold">Kalia Hayes</span>. I’m a Dallas, TX based Software Developer
+        @Citi focused on crafting an AI/ML Automation Platform we like to
+        call <span class="peach bold">PUMA</span>. 🐆
       </p>
+      <br />
+      <p>
+        Feel free to check out my little corners of the internet & other
+        projects below! Definitely reach out if you’d like to connect or
+        collaborate – I’m currently on the lookout for new open-source
+        opportunities, so let’s chat! 💻🤝
+      </p>
+      <br />
+      <p>If you’re interested in learning more about me, I ramble on here.</p>
+      <br />
+      <p>
+        <span class="blue bold">Interests</span>: #web dev #ui/ux #automation #product
+        ideation #emerging tech #learning french #gaming #retrofuturism
+        #design trends #dallas cowboys
+      </p>
+      <br />
+      <p>
+        <span class="purple bold">Tools & Tech</span>: #angular #typescript #vercel #node #vscode #figma #adobe cc #photoshop
+        #firebase #mongodb #git #ionic #chart.js #analog #chrome api
+      </p>
+
     </div>
+
+    
 
     <p class="shimmer section-heading">featured projects</p>
     <app-card *ngFor="let project of featuredProjects" [content]="project"></app-card>
@@ -36,8 +65,8 @@ import { CardComponent } from "../components/layout/card/card.component";
     <app-card *ngFor="let blog of featuredBlogs" [content]="blog"></app-card>
 
   `,
-    styles: [``],
-    imports: [CommonModule, NgForOf, CardComponent]
+  styles: [``],
+  imports: [CommonModule, NgForOf, CardComponent]
 })
 export default class HomeComponent implements OnInit {
   colors: string[] = ['#F48FDD', '#8FB6F2', '#C490FA', '#FEBB8E'];
@@ -85,3 +114,4 @@ export default class HomeComponent implements OnInit {
     });
   }
 }
+  
