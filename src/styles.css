@@ -244,7 +244,10 @@ select {
   text-transform: none;
 }
 
-button.hamburger-btn:focus, button.hamburger-btn:focus-visible, button.hamburger-btn:active, button.hamburger-btn:hover {
+button.hamburger-btn:focus,
+button.hamburger-btn:focus-visible,
+button.hamburger-btn:active,
+button.hamburger-btn:hover {
   border: 1px solid black;
   outline: none;
 }
@@ -701,7 +704,7 @@ button {
 }
 
 button:hover {
-  border-color: #646cff;
+  /* border-color: #646cff; */
 }
 
 .nav-items button:hover {
@@ -1012,6 +1015,24 @@ select {
   margin-bottom: 1rem;
   font-size: 1rem;
   line-height: 1.5;
+}
+
+.pink-hover:hover {
+  border: 1px solid #f48fdd;
+}
+.blue-hover:hover {
+  border: 1px solid #8fb6f2;
+}
+.purple-hover:hover {
+  border: 1px solid #c490fa;
+}
+.peach-hover:hover {
+  border: 1px solid #febb8e;
+  cursor: pointer;
+}
+
+.pink-hover input {
+  cursor: pointer;
 }
 
 /* Mobile */

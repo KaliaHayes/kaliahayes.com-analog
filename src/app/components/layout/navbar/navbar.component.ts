@@ -1,12 +1,11 @@
-import {
-  Component,
-  OnInit,
-  computed,
-  inject,
-  signal,
-} from '@angular/core';
+import { Component, OnInit, computed, inject, signal } from '@angular/core';
 import { CommonModule, NgForOf } from '@angular/common';
-import { NavigationEnd, Router, RouterModule, RouterOutlet } from '@angular/router';
+import {
+  NavigationEnd,
+  Router,
+  RouterModule,
+  RouterOutlet,
+} from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
@@ -90,7 +89,9 @@ export class NavbarComponent implements OnInit {
     this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
         this.expanded.set(false);
-        window.scrollTo(0, 0)
+        if (this.router.url !== event.url) {
+          if (typeof window !== 'undefined') window.scrollTo(0, 0);
+        }
       }
     });
   }

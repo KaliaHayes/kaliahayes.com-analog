@@ -1,9 +1,18 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { CommonModule, NgForOf } from '@angular/common';
 import { injectContentFiles } from '@analogjs/content';
 import { InjectContentFilesFilterFunction } from '@analogjs/content/lib/inject-content-files';
 import { ProjectAttributes } from '../routes/projects/projects.model';
-import { CardComponent } from "../components/layout/card/card.component";
+import { CardComponent } from '../components/layout/card/card.component';
+import { ContactPageComponent } from '../components/layout/contact/contact.component';
+import {
+  ActivatedRoute,
+  NavigationEnd,
+  Router,
+  RouterModule,
+  RouterOutlet,
+} from '@angular/router';
+import { RouteReuseStrategy } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -11,26 +20,11 @@ import { CardComponent } from "../components/layout/card/card.component";
   template: `
     <!-- About Me -->
     <div class="card intro">
-      <!-- <p>
-        Consequat exercitation amet duis ea non id duis officia ex. Enim
-        consectetur quis laborum reprehenderit aliqua mollit veniam laborum
-        irure laborum pariatur pariatur nostrud. Nostrud adipisicing esse qui
-        magna labore cupidatat magna ex nostrud nulla laboris minim. Aliquip
-        fugiat mollit culpa enim exercitation ad.
-      </p>
-      <br />
       <p>
-        Consequat exercitation amet duis ea non id duis officia ex. Enim
-        consectetur quis laborum reprehenderit aliqua mollit veniam laborum
-        irure laborum pariatur pariatur nostrud. Nostrud adipisicing esse qui
-        magna labore cupidatat magna ex nostrud nulla laboris minim. Aliquip
-        fugiat mollit culpa enim exercitation ad.
-      </p> -->
-
-      <p>
-        👋 Hello! I’m <span class="pink bold">Kalia Hayes</span>. I’m a Dallas, TX based Software Developer
-        @Citi focused on crafting an AI/ML Automation Platform we like to
-        call <span class="peach bold">PUMA</span>. 🐆
+        👋 Hello! I’m <span class="pink bold">Kalia Hayes</span>. I’m a Dallas,
+        TX based Software Developer @Citi focused on crafting an AI/ML
+        Automation Platform we like to call
+        <span class="peach bold">PUMA</span>. 🐆
       </p>
       <br />
       <p>
@@ -43,33 +37,41 @@ import { CardComponent } from "../components/layout/card/card.component";
       <p>If you’re interested in learning more about me, I ramble on here.</p>
       <br />
       <p>
-        <span class="blue bold">Interests</span>: #web dev #ui/ux #automation #product
-        ideation #emerging tech #learning french #gaming #retrofuturism
+        <span class="blue bold">Interests</span>: #web dev #ui/ux #automation
+        #product ideation #emerging tech #learning french #gaming #retrofuturism
         #design trends #dallas cowboys
       </p>
       <br />
       <p>
-        <span class="purple bold">Tools & Tech</span>: #angular #typescript #vercel #node #vscode #figma #adobe cc #photoshop
-        #firebase #mongodb #git #ionic #chart.js #analog #chrome api
+        <span class="purple bold">Tools & Tech</span>: #angular #typescript
+        #vercel #node #vscode #figma #adobe cc #photoshop #firebase #mongodb
+        #git #ionic #chart.js #analog #chrome api
       </p>
-
     </div>
 
-    
-
     <p class="shimmer section-heading">featured projects</p>
-    <app-card *ngFor="let project of featuredProjects" [content]="project"></app-card>
-
+    <app-card
+      *ngFor="let project of featuredProjects"
+      [content]="project"
+    ></app-card>
 
     <p class="shimmer section-heading">latest blogs</p>
     <app-card *ngFor="let blog of featuredBlogs" [content]="blog"></app-card>
 
+    <p class="shimmer section-heading" id="contact">contact</p>
+    <app-contact></app-contact>
   `,
   styles: [``],
-  imports: [CommonModule, NgForOf, CardComponent]
+  imports: [
+    CommonModule,
+    NgForOf,
+    CardComponent,
+    ContactPageComponent,
+    RouterOutlet,
+  ],
 })
-export default class HomeComponent implements OnInit {
-  colors: string[] = ['#F48FDD', '#8FB6F2', '#C490FA', '#FEBB8E'];
+export default class HomeComponent implements OnInit, AfterViewInit {
+  colors: string[] = [ '#8FB6F2', '#C490FA', '#F48FDD', '#FEBB8E'];
 
   private readonly projectsFilterFn: InjectContentFilesFilterFunction<ProjectAttributes> =
     (contentFile) =>
@@ -87,11 +89,36 @@ export default class HomeComponent implements OnInit {
 
   featuredBlogs = injectContentFiles<ProjectAttributes>(this.blogsFilterFn);
 
+  constructor(private route: ActivatedRoute, private router: Router) {
+  }
+
   ngOnInit() {
     this.getContentMetadata();
   }
 
+  ngAfterViewInit(): void {
+    this.router.onSameUrlNavigation = 'reload';
+    this.router.events.subscribe((s) => {
+      if (s instanceof NavigationEnd) {
+        const tree = this.router.parseUrl(this.router.url);
+        if (tree.fragment) {
+          setTimeout(() => {
+          const element = document.querySelector('#' + tree.fragment);
+          if (element) {
+            element.scrollIntoView({
+              behavior: 'smooth',
+              block: 'start',
+              inline: 'nearest',
+            });
+          }
+          }, 300);
+        }
+      }
+    });
+  }
+
   getContentMetadata() {
+    //@todo move the logic to add accentColor to the card component... maybe
     // continously loop through the colors array
     // and assign the color to the project as 'accentColor'
     // minimize, condense + move this to a service... eventually :)
@@ -114,4 +141,3 @@ export default class HomeComponent implements OnInit {
     });
   }
 }
-  

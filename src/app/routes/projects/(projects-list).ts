@@ -17,7 +17,7 @@ import { NgForOf } from '@angular/common';
   imports: [RouterOutlet, CardComponent, NgForOf],
 })
 export default class ProjectsListComponent implements OnInit {
-  colors: string[] = ['#F48FDD', '#8FB6F2', '#C490FA', '#FEBB8E'];
+  colors: string[] = [ '#8FB6F2', '#C490FA', '#F48FDD', '#FEBB8E'];
 
   private readonly projectsFilterFn: InjectContentFilesFilterFunction<ProjectAttributes> =
     (contentFile) => !!contentFile.filename.includes('/src/content/projects/');
