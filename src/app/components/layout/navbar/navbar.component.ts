@@ -6,6 +6,7 @@ import {
   RouterModule,
   RouterOutlet,
 } from '@angular/router';
+import { createLogger } from 'vite';
 
 @Component({
   selector: 'app-navbar',
@@ -89,9 +90,8 @@ export class NavbarComponent implements OnInit {
     this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
         this.expanded.set(false);
-        if (this.router.url !== event.url) {
-          if (typeof window !== 'undefined') window.scrollTo(0, 0);
-        }
+        if (typeof window !== 'undefined')
+          if (this.router.url !== '/#contact') window.scrollTo(0, 0);
       }
     });
   }
