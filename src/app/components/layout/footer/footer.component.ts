@@ -40,7 +40,7 @@ import { CommonModule, NgForOf } from '@angular/common';
       }
 
       .social-icons img {
-        filter: invert(0.2);
+        filter: invert(0.4);
         width: 25px;
         margin-left: 10px;
       }
