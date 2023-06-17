@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { CommonModule, NgForOf, NgIf } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { createLogger } from 'vite';
 
 @Component({
   selector: 'app-card',
@@ -49,6 +50,10 @@ import { RouterModule } from '@angular/router';
         <span class="tag" *ngFor="let tag of content.attributes?.tags">
           #{{ tag }}
         </span>
+        <br />
+        <span class="tag">
+          {{ content.attributes?.date | date : 'mediumDate' }}
+        </span>
       </div>
       <div class="spacer-40"></div>
     </div>
@@ -57,14 +62,15 @@ import { RouterModule } from '@angular/router';
 })
 export class CardComponent implements OnInit {
   @Input() content: any;
-
+  @Input() index!: number;
   onHover = false;
+  colors: string[] = ['#8FB6F2', '#C490FA', '#F48FDD', '#FEBB8E'];
 
   toggleHoverState() {
     this.onHover = !this.onHover;
   }
 
   ngOnInit(): void {
-    // console.log('card-component', this.content);
+    this.content.accentColor = this.colors[this.index % this.colors.length];
   }
 }

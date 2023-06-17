@@ -51,12 +51,17 @@ import { RouteReuseStrategy } from '@angular/router';
 
     <p class="shimmer section-heading">featured projects</p>
     <app-card
-      *ngFor="let project of featuredProjects"
+      *ngFor="let project of featuredProjects; let i = index"
+      [index]="i"
       [content]="project"
     ></app-card>
 
     <p class="shimmer section-heading">latest blogs</p>
-    <app-card *ngFor="let blog of featuredBlogs" [content]="blog"></app-card>
+    <app-card
+      *ngFor="let blog of featuredBlogs; let i = index"
+      [index]="i"
+      [content]="blog"
+    ></app-card>
 
     <p class="shimmer section-heading" id="contact">contact</p>
     <app-contact></app-contact>
@@ -71,7 +76,7 @@ import { RouteReuseStrategy } from '@angular/router';
   ],
 })
 export default class HomeComponent implements OnInit, AfterViewInit {
-  colors: string[] = [ '#8FB6F2', '#C490FA', '#F48FDD', '#FEBB8E'];
+  colors: string[] = ['#8FB6F2', '#C490FA', '#F48FDD', '#FEBB8E'];
 
   private readonly projectsFilterFn: InjectContentFilesFilterFunction<ProjectAttributes> =
     (contentFile) =>
@@ -89,11 +94,11 @@ export default class HomeComponent implements OnInit, AfterViewInit {
 
   featuredBlogs = injectContentFiles<ProjectAttributes>(this.blogsFilterFn);
 
-  constructor(private route: ActivatedRoute, private router: Router) {
-  }
+  constructor(private route: ActivatedRoute, private router: Router) {}
 
   ngOnInit() {
     this.getContentMetadata();
+    console.log(this.featuredBlogs);
   }
 
   ngAfterViewInit(): void {
@@ -103,14 +108,14 @@ export default class HomeComponent implements OnInit, AfterViewInit {
         const tree = this.router.parseUrl(this.router.url);
         if (tree.fragment) {
           setTimeout(() => {
-          const element = document.querySelector('#' + tree.fragment);
-          if (element) {
-            element.scrollIntoView({
-              behavior: 'smooth',
-              block: 'start',
-              inline: 'nearest',
-            });
-          }
+            const element = document.querySelector('#' + tree.fragment);
+            if (element) {
+              element.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start',
+                inline: 'nearest',
+              });
+            }
           }, 300);
         }
       }
@@ -118,15 +123,10 @@ export default class HomeComponent implements OnInit, AfterViewInit {
   }
 
   getContentMetadata() {
-    //@todo move the logic to add accentColor to the card component... maybe
-    // continously loop through the colors array
-    // and assign the color to the project as 'accentColor'
-    // minimize, condense + move this to a service... eventually :)
     this.featuredProjects = this.featuredProjects.map(
       (project: any, index: number) => {
         return {
           ...project,
-          accentColor: this.colors[index % this.colors.length],
           route: 'projects',
         };
       }
@@ -135,7 +135,6 @@ export default class HomeComponent implements OnInit, AfterViewInit {
     this.featuredBlogs = this.featuredBlogs.map((blog, index) => {
       return {
         ...blog,
-        accentColor: this.colors[index % this.colors.length],
         route: 'blog',
       };
     });

@@ -1,5 +1,6 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, inject } from '@angular/core';
 import { CommonModule, NgForOf } from '@angular/common';
+import { Router, NavigationEnd } from '@angular/router';
 
 @Component({
   selector: 'app-footer',
@@ -7,7 +8,7 @@ import { CommonModule, NgForOf } from '@angular/common';
   imports: [CommonModule],
   template: `
     <div class="small footer">
-      <p class="shimmer">Kalia Hayes © 2023</p>
+      <p class="shimmer">© 2023 Kalia Hayes</p>
       <p>Powered by Analog & Vercel</p>
       <div class="social-icons flex">
         <a href="https://github.com/KaliaHayes" target="_blank">
@@ -53,4 +54,15 @@ import { CommonModule, NgForOf } from '@angular/common';
     `,
   ],
 })
-export class FooterComponent {}
+export class FooterComponent implements OnInit {
+  router = inject(Router);
+  currentUrl?: string;
+
+  ngOnInit() {
+    this.router.events.subscribe((event) => {
+      if (event instanceof NavigationEnd) {
+        this.currentUrl = event.url;
+      }
+    });
+  }
+}

@@ -12,12 +12,16 @@ import { NgForOf } from '@angular/common';
   template: `
     <div class="card">Projects Li$$$t</div>
     <div class="spacer-40"></div>
-    <app-card *ngFor="let project of projects" [content]="project"></app-card>
+    <app-card
+      *ngFor="let project of projects; let i = index"
+      [index]="i"
+      [content]="project"
+    ></app-card>
   `,
   imports: [RouterOutlet, CardComponent, NgForOf],
 })
 export default class ProjectsListComponent implements OnInit {
-  colors: string[] = [ '#8FB6F2', '#C490FA', '#F48FDD', '#FEBB8E'];
+  colors: string[] = ['#8FB6F2', '#C490FA', '#F48FDD', '#FEBB8E'];
 
   private readonly projectsFilterFn: InjectContentFilesFilterFunction<ProjectAttributes> =
     (contentFile) => !!contentFile.filename.includes('/src/content/projects/');
@@ -33,7 +37,6 @@ export default class ProjectsListComponent implements OnInit {
     this.projects = this.projects.map((project: any, index: number) => {
       return {
         ...project,
-        accentColor: this.colors[index % this.colors.length],
         route: 'projects',
       };
     });

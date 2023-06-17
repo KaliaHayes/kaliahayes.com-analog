@@ -12,3 +12,5 @@ meta:
 Analog is a meta-framework for Angular.
 
 [Back Home](./)
+
+[Uses](./uses)
