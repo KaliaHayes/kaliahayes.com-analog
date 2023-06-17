@@ -16,17 +16,20 @@ tags: ["markdown", "cheatsheet", "resource"]
 - [uno](https://hugo-paper.vercel.app/post/markdown-syntax/)
 - [Dos](https://github.com/tchapi/markdown-cheatsheet)
 
+# Test <a name="test"></a>
+
+## [Test 2](#test2)
 
 ```typescript
-import { Component, OnInit, inject } from '@angular/core';
-import { AsyncPipe, JsonPipe, NgIf } from '@angular/common';
-import { ActivatedRoute } from '@angular/router';
-import { map } from 'rxjs';
-import { MarkdownComponent, injectContent } from '@analogjs/content';
-import { BlogAttributes } from './blog.model';
+import { Component, OnInit, inject } from "@angular/core";
+import { AsyncPipe, JsonPipe, NgIf } from "@angular/common";
+import { ActivatedRoute } from "@angular/router";
+import { map } from "rxjs";
+import { MarkdownComponent, injectContent } from "@analogjs/content";
+import { BlogAttributes } from "./blog.model";
 
 @Component({
-  selector: 'app-blog-post',
+  selector: "app-blog-post",
   standalone: true,
   imports: [MarkdownComponent, AsyncPipe, NgIf, JsonPipe],
   template: `
@@ -42,12 +45,10 @@ import { BlogAttributes } from './blog.model';
 export default class BlogPostPageComponent implements OnInit {
   private readonly route = inject(ActivatedRoute);
 
-  readonly routId$ = this.route.paramMap.pipe(
-    map((params) => params.get('productId'))
-  );
+  readonly routId$ = this.route.paramMap.pipe(map((params) => params.get("productId")));
   readonly blogs$ = injectContent<BlogAttributes>({
-    param: 'slug',
-    subdirectory: 'blogs',
+    param: "slug",
+    subdirectory: "blogs",
   });
 
   ngOnInit(): void {
@@ -58,42 +59,37 @@ export default class BlogPostPageComponent implements OnInit {
 }
 ```
 
-
-
 ```html
 <div class="card-container" (mouseenter)="toggleHoverState()" (mouseleave)="toggleHoverState()">
-    <div class="card" [style.border-color]="onHover ? blog.accentColor : ''">
-        <!-- <img [src]="blog.imageUrl" alt=""> -->
-        <h5>
-            {{ blog.attributes.name }}
-        </h5>
-        <p>
-            {{ blog.attributes.description }}
-        </p>
-        <p class="more">
-            <a [style.color]=" blog.accentColor" [routerLink]="['/blog/' + blog.slug]">
-                <i class="fa fa-external-link"></i>
-                <span>Read More</span>
-            </a>
-        </p>
-    </div>
-    <div class="spacer-5"></div>
-    <div class="tags" [style.opacity]="onHover ? '1' : '0'">
-        <span *ngFor="let tag of blog.attributes.tags">
-            #{{ tag }}
-        </span>
-    </div>
-    <div class="spacer-40"></div>
+  <div class="card" [style.border-color]="onHover ? blog.accentColor : ''">
+    <!-- <img [src]="blog.imageUrl" alt=""> -->
+    <h5>{{ blog.attributes.name }}</h5>
+    <p>{{ blog.attributes.description }}</p>
+    <p class="more">
+      <a [style.color]=" blog.accentColor" [routerLink]="['/blog/' + blog.slug]">
+        <i class="fa fa-external-link"></i>
+        <span>Read More</span>
+      </a>
+    </p>
+  </div>
+  <div class="spacer-5"></div>
+  <div class="tags" [style.opacity]="onHover ? '1' : '0'">
+    <span *ngFor="let tag of blog.attributes.tags"> #{{ tag }} </span>
+  </div>
+  <div class="spacer-40"></div>
 </div>
 ```
 
-
-
 # Heading 1
-## Heading 2 
+
+## Heading 2
+
 ### Heading 3
+
 #### Heading 4
+
 ##### Heading 5
+
 ###### Heading 6
 
     Markup :  # Heading 1 #
@@ -102,7 +98,6 @@ export default class BlogPostPageComponent implements OnInit {
               #### Heading 4 ####
               ##### Heading 5 #####
               ###### Heading 6 ######
-
 
 Common text
 

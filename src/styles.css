@@ -987,6 +987,10 @@ ul li::before {
   content: "\200B";
 }
 
+ul {
+  margin-top: 0pt;
+}
+
 blockquote {
   border-left: 5px solid white;
   padding: 0 1em;

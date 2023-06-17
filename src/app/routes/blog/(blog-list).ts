@@ -12,12 +12,16 @@ import { ProjectAttributes } from '../projects/projects.model';
   template: `
     <div class="card">Blog Li$$$t</div>
     <div class="spacer-40"></div>
-    <app-card *ngFor="let blog of blogs" [content]="blog"></app-card>
+    <app-card
+      *ngFor="let blog of blogs; let i = index"
+      [index]="i"
+      [content]="blog"
+    ></app-card>
   `,
   imports: [RouterOutlet, CardComponent, NgForOf],
 })
 export default class BlogListComponent implements OnInit {
-  colors: string[] = [ '#8FB6F2', '#C490FA', '#F48FDD', '#FEBB8E'];
+  colors: string[] = ['#8FB6F2', '#C490FA', '#F48FDD', '#FEBB8E'];
 
   private readonly blogsFilterFn: InjectContentFilesFilterFunction<ProjectAttributes> =
     (contentFile) => !!contentFile.filename.includes('/src/content/blogs/');
@@ -33,8 +37,7 @@ export default class BlogListComponent implements OnInit {
     this.blogs = this.blogs.map((blog: any, index: number) => {
       return {
         ...blog,
-        accentColor: this.colors[index % this.colors.length],
-        route: 'blog'
+        route: 'blog',
       };
     });
   }
