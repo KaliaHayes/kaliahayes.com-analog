@@ -1,41 +1,89 @@
 import { AfterViewInit, Component, OnInit, inject } from '@angular/core';
-import { AsyncPipe, JsonPipe, NgIf } from '@angular/common';
+import { AsyncPipe, JsonPipe, NgFor, NgIf, DatePipe } from '@angular/common';
 import {
   ActivatedRoute,
   NavigationEnd,
   Router,
   RouterModule,
-} from '@angular/router'; // import RouterModule
-import { map } from 'rxjs';
+} from '@angular/router';
 import {
-  ContentRenderer,
   MarkdownComponent,
   injectContent,
+  ContentRenderer,
+  injectContentFiles,
 } from '@analogjs/content';
+import { Location } from '@angular/common';
+import { GlobalService } from '../../core/services/global-service.service';
+import { BackToTopDirective } from '../../core/directives/back-to-top.directive';
+import { ScrollService } from '../../core/services/scroll.service';
+import { BehaviorSubject, tap } from 'rxjs';
 import { BlogAttributes } from './blog.model';
+import { InjectContentFilesFilterFunction } from '@analogjs/content/lib/inject-content-files';
+import { ProjectAttributes } from '../projects/projects.model';
+import { PostNavigationComponent } from '../../core/layout/post-navigation/post-navigation.component';
+import { PostInfoComponent } from '../../core/layout/post-info/post-info.component';
 
 @Component({
   selector: 'app-blog-post',
   standalone: true,
-  imports: [MarkdownComponent, AsyncPipe, NgIf, JsonPipe, RouterModule], // add RouterModule to imports
+  imports: [
+    MarkdownComponent,
+    AsyncPipe,
+    NgIf,
+    NgFor,
+    JsonPipe,
+    RouterModule,
+    DatePipe,
+    DatePipe,
+    BackToTopDirective,
+    PostNavigationComponent,
+    PostInfoComponent,
+  ],
   template: `
-    <div *ngIf="blogs$ | async as blog" class="blog long-form">
-      <p>← Home</p>
-      <p>
-        <a
-          [routerLink]="['/blog/markdown-cheatsheet']"
-          fragment="blockquotes"
-          routerLinkActive="router-link-active"
-          >Go To Blockquotes</a
-        >
-      </p>
-      <!-- <p (click)="log()">log content or doc or something</p> -->
+    <div class="toc" *ngIf="toc$ | async">
+      <p>Content</p>
+      <analog-markdown
+        class="toc-md"
+        [content]="toc$ | async"
+        *ngIf="toc$ | async"
+      ></analog-markdown>
+      <hr />
+      <p backToTop class="backToTop link">Back to Top</p>
+    </div>
+
+    <div *ngIf="blog$ | async as blog" class="card blog-post">
+      <p (click)="goToBlog()" class="link">← Blog</p>
 
       <ng-container>
         <h1>{{ blog.attributes.name }}</h1>
-        <hr />
+
+        <img
+          *ngIf="blog.attributes.imageUrl"
+          [src]="blog.attributes.imageUrl"
+          alt=""
+        />
+
+        <h4>{{ blog.attributes.description }}</h4>
+
+        <p>{{ blog.attributes.published | date : 'MMM d, y' }}</p>
+        <hr style="border-color: #232323" />
         <analog-markdown [content]="blog.content"></analog-markdown>
       </ng-container>
+
+      <br />
+      <br />
+
+      <app-post-info [post]="blog" />
+
+      <br />
+      <br />
+      <br />
+
+      <app-post-navigation
+        [previousPost]="blogs[index - 1]"
+        [nextPost]="blogs[index + 1]"
+        [type]="'blog'"
+      />
     </div>
   `,
   styles: [
@@ -46,109 +94,60 @@ import { BlogAttributes } from './blog.model';
     `,
   ],
 })
-export default class BlogPostPageComponent implements OnInit, AfterViewInit {
+export default class BlogPostPageComponent implements OnInit {
   private readonly route = inject(ActivatedRoute);
+  public readonly router = inject(Router);
+  private globalService = inject(GlobalService);
+  private scrollService = inject(ScrollService);
+  toc$: BehaviorSubject<string> = new BehaviorSubject<string>('');
+  private readonly blogsFilterFn: InjectContentFilesFilterFunction<ProjectAttributes> =
+    (contentFile) => !!contentFile.filename.includes('/src/content/blogs/');
+  blogs = injectContentFiles<ProjectAttributes>(this.blogsFilterFn);
 
-  readonly routId$ = this.route.paramMap.pipe(
-    map((params) => params.get('productId'))
-  );
-  readonly blogs$ = injectContent<BlogAttributes>({
+  readonly blog$ = injectContent<BlogAttributes>({
     param: 'slug',
     subdirectory: 'blogs',
   });
+  index!: number;
 
-  private router = inject(Router);
+  colors: string[] = ['#8FB6F2', '#C490FA', '#F48FDD', '#FEBB8E'];
 
   ngOnInit(): void {
-    this.blogs$.subscribe((blog) => {
-      console.log('blog', blog);
-      // console.log(blog.content);
+    // this.blogs = this.blogs.sort((a: any, b: any) => {
+    //   const priorityA = a.attributes.priority || Infinity;
+    //   const priorityB = b.attributes.priority || Infinity;
+    //   return priorityA - priorityB;
+    // });
+
+    this.blogs = this.blogs.map((blog, index) => {
+      return {
+        ...blog,
+        accentColor: this.colors[index % this.colors.length],
+      };
     });
 
-    // get all unique ids from document
-    const ids = Array.from(document.querySelectorAll('[id]')).map(
-      (el) => el.id
-    );
-    // console.log('ids', ids);
+    this.blog$
+      .pipe(
+        tap((blog) => {
+          console.log('blog', blog);
+
+          if (blog.content) {
+            const toc = this.globalService.generateTableOfContents(
+              blog,
+              'blog'
+            );
+            this.toc$.next(toc);
+          }
+
+          this.index = this.blogs.findIndex((b) => b.slug === blog.slug);
+        })
+      )
+      .subscribe();
+
+    console.log('blogs', this.blogs);
   }
 
-  ngAfterViewInit(): void {
-    // this.router.onSameUrlNavigation = 'reload';
-    this.router.events.subscribe((s) => {
-      if (s instanceof NavigationEnd) {
-        const tree = this.router.parseUrl(this.router.url);
-        if (tree.fragment) {
-          setTimeout(() => {
-            const element = document.querySelector('#' + tree.fragment);
-            if (element) {
-              element.scrollIntoView({
-                behavior: 'smooth',
-                block: 'center',
-                inline: 'nearest',
-              });
-            }
-          }, 300);
-        }
-      }
-    });
+  goToBlog() {
+    this.router.navigateByUrl('/blog');
   }
-
-  //   // get all unique ids from document
-  //   const ids = Array.from(document.querySelectorAll('[id]')).map(
-  //     (el) => el.id
-  //   );
-  //   // console.log('ids', ids);
-  // }
-
-  // log() {
-  //   const blogs = document.getElementsByClassName('blog');
-  //   const ids = Array.from(blogs).flatMap((blog) =>
-  //     Array.from(blog.querySelectorAll('[id]')).map((el) => el.id)
-  //   );
-  //   console.log('ids', ids);
-
-  //   const headings = document.querySelectorAll('h1, h2, h3, h4, h5, h6');
-  //   console.log('headings: ', headings);
-  //   const ids2 = Array.from(headings).map((heading) =>
-  //     heading.getAttribute('id')
-  //   );
-  //   console.log('ids2: ', ids2);
-
-  //   const toc = document.createElement('ul');
-  //   toc.classList.add('toc');
-
-  //   const prevLi: HTMLLIElement[] = [];
-
-  //   headings.forEach((heading) => {
-  //     const level = parseInt(heading.tagName.charAt(1));
-  //     const li = document.createElement('li');
-  //     const a = document.createElement('a');
-  //     const text = document.createTextNode(heading.textContent || '');
-  //     const id = heading.getAttribute('id');
-
-  //     a.appendChild(text);
-  //     a.href = `#${id?.toString()}`;
-  //     li.appendChild(a);
-
-  //     if (level > 1) {
-  //       const parentLi = prevLi[level - 2];
-  //       if (parentLi instanceof HTMLLIElement) {
-  //         const ul = parentLi.querySelector('ul');
-  //         if (ul instanceof HTMLUListElement) {
-  //           ul.appendChild(li);
-  //         } else {
-  //           const newUl = document.createElement('ul');
-  //           newUl.appendChild(li);
-  //           parentLi.appendChild(newUl);
-  //         }
-  //       }
-  //     } else {
-  //       toc.appendChild(li);
-  //     }
-
-  //     prevLi[level - 1] = li;
-  //   });
-
-  //   document.body.appendChild(toc);
-  // }
 }

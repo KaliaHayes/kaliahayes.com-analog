@@ -2,7 +2,7 @@ import { injectContentFiles } from '@analogjs/content';
 import { InjectContentFilesFilterFunction } from '@analogjs/content/lib/inject-content-files';
 import { Component, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { CardComponent } from '../../components/layout/card/card.component';
+import { CardComponent } from '../../core/layout/card/card.component';
 import { NgForOf } from '@angular/common';
 import { ProjectAttributes } from '../projects/projects.model';
 
@@ -21,8 +21,6 @@ import { ProjectAttributes } from '../projects/projects.model';
   imports: [RouterOutlet, CardComponent, NgForOf],
 })
 export default class BlogListComponent implements OnInit {
-  colors: string[] = ['#8FB6F2', '#C490FA', '#F48FDD', '#FEBB8E'];
-
   private readonly blogsFilterFn: InjectContentFilesFilterFunction<ProjectAttributes> =
     (contentFile) => !!contentFile.filename.includes('/src/content/blogs/');
 
@@ -30,15 +28,21 @@ export default class BlogListComponent implements OnInit {
 
   ngOnInit() {
     this.getContentMetadata();
-    // console.log(this.blogs);
+    console.log('this.blogs', this.blogs);
   }
 
   getContentMetadata() {
-    this.blogs = this.blogs.map((blog: any, index: number) => {
-      return {
-        ...blog,
-        route: 'blog',
-      };
-    });
+    this.blogs = this.blogs
+      .map((blog: any, index: number) => {
+        return {
+          ...blog,
+          route: 'blog',
+        };
+      })
+      .sort((a: any, b: any) => {
+        const dateA = new Date(a.attributes.date);
+        const dateB = new Date(b.attributes.date);
+        return dateB.getTime() - dateA.getTime();
+      });
   }
 }

@@ -1,13 +1,13 @@
 import { BlogAttributes } from './routes/blog/blog.model';
-import { Component, OnInit, signal } from '@angular/core';
+import { Component, OnInit, inject, signal } from '@angular/core';
 import {
   RouterOutlet,
   RouterModule,
   Router,
   NavigationEnd,
 } from '@angular/router';
-import { NavbarComponent } from './components/layout/navbar/navbar.component';
-import { FooterComponent } from './components/layout/footer/footer.component';
+import { NavbarComponent } from './core/layout/navbar/navbar.component';
+import { FooterComponent } from './core/layout/footer/footer.component';
 
 @Component({
   selector: 'app-root',
@@ -21,9 +21,27 @@ import { FooterComponent } from './components/layout/footer/footer.component';
     </div>
 
     <app-footer></app-footer>
+
+    <button
+      id="scrollButton"
+      class="scroll-button hidden sm:block"
+      (click)="scrollToBottom()"
+    >
+      &#8595;
+      <!-- Unicode for downward arrow -->
+    </button>
   `,
   styles: [
     `
+      .scroll-button {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        font-size: 2em;
+        background: black;
+        border: 1px solid;
+      }
+
       :host {
         max-width: 600px;
         margin: 0 auto;
@@ -83,7 +101,14 @@ import { FooterComponent } from './components/layout/footer/footer.component';
   imports: [RouterOutlet, RouterModule, NavbarComponent, FooterComponent],
 })
 export class AppComponent implements OnInit {
-  constructor(private router: Router) {}
+  private router = inject(Router);
 
   ngOnInit() {}
+
+  scrollToBottom() {
+    window.scrollTo({
+      top: document.documentElement.scrollHeight,
+      behavior: 'smooth',
+    });
+  }
 }

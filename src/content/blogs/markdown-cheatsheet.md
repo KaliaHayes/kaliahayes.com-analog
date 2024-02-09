@@ -1,10 +1,11 @@
 ---
 name: Your All in One Markdown Cheatsheet
-date: 2023-05-12
+published: 01-20-2023
 description: A markdown cheatsheet for all your markdown needs. Use this cheatsheet as a guide to help you write markdown.
 slug: markdown-cheatsheet
 featured: true
 tags: ["markdown", "cheatsheet", "resource"]
+updated: 10-10-2023
 ---
 
 # Markdown Cheatsheet<a name="TOP"></a>
@@ -33,7 +34,7 @@ import { BlogAttributes } from "./blog.model";
   standalone: true,
   imports: [MarkdownComponent, AsyncPipe, NgIf, JsonPipe],
   template: `
-    <div *ngIf="blogs$ | async as blog" class="card blog long-form">
+    <div *ngIf="blogs$ | async as blog" class="card blog blog-post">
       <ng-container>
         <h1>{{ blog.attributes.name }}</h1>
         <hr />
