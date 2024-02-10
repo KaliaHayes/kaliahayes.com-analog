@@ -21,7 +21,7 @@ import { ScrollService } from '../core/services/scroll.service';
     <div class="card intro">
       <p>
         👋 Hello! I’m <span class="pink bold">Kalia Hayes</span>. I’m a Dallas,
-        TX based Software Developer @Citi focused on crafting an AI/ML
+        TX based Software Developer &#64;Citi focused on crafting an AI/ML
         Automation Platform we like to call
         <span class="peach bold">PUMA</span>. 🐆
       </p>
