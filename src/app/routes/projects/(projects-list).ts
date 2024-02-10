@@ -3,7 +3,7 @@ import { InjectContentFilesFilterFunction } from '@analogjs/content/lib/inject-c
 import { Component, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { ProjectAttributes } from './projects.model';
-import { CardComponent } from '../../components/layout/card/card.component';
+import { CardComponent } from '../../core/layout/card/card.component';
 import { NgForOf } from '@angular/common';
 
 @Component({
@@ -21,8 +21,6 @@ import { NgForOf } from '@angular/common';
   imports: [RouterOutlet, CardComponent, NgForOf],
 })
 export default class ProjectsListComponent implements OnInit {
-  colors: string[] = ['#8FB6F2', '#C490FA', '#F48FDD', '#FEBB8E'];
-
   private readonly projectsFilterFn: InjectContentFilesFilterFunction<ProjectAttributes> =
     (contentFile) => !!contentFile.filename.includes('/src/content/projects/');
 
@@ -30,15 +28,21 @@ export default class ProjectsListComponent implements OnInit {
 
   ngOnInit() {
     this.getContentMetadata();
-    // console.log(this.projects);
+    console.log(this.projects);
   }
 
   getContentMetadata() {
-    this.projects = this.projects.map((project: any, index: number) => {
-      return {
-        ...project,
-        route: 'projects',
-      };
-    });
+    this.projects = this.projects
+      .map((project: any, index: number) => {
+        return {
+          ...project,
+          route: 'projects',
+        };
+      })
+      .sort((a: any, b: any) => {
+        const priorityA = a.attributes.priority || Infinity;
+        const priorityB = b.attributes.priority || Infinity;
+        return priorityA - priorityB;
+      });
   }
 }

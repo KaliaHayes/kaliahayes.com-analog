@@ -20,8 +20,8 @@ import { ProjectAttributes } from '../routes/projects/projects.model';
       <br />
       <b>💻 Computer</b>
       <ul>
-        <li>MacBook Pro 2020 13" I9</li>
-        <li>Mac Studio M2 Max</li>
+        <li>16" MacBook Pro 2021 M1 Max 64GB</li>
+        <li>Lenovo Thinkpad</li>
       </ul>
       <b>🗄️ Desk</b>
       <ul>
@@ -77,14 +77,17 @@ import { ProjectAttributes } from '../routes/projects/projects.model';
         <li>Personal Development</li>
         <ul>
           <li>
-            VS Code - Insiders
-            <span class="grey"
-              >(I switch it up between Hyper Term Black & my own Kolada Theme -
+            <span>VS Code - Insiders</span>
+            <span class="grey">
+              (I switch it up between Hyper Term Black & my own Kolada Theme -
               shoutout #000)</span
             >
           </li>
           <li>
-            GitHub <span class="grey">(GH for my personla development)</span>
+            GitHub
+            <span class="grey"
+              >(GH for my personal learning & development)</span
+            >
           </li>
           <li>Git</li>
           <li>HyperX Terminal</li>
@@ -99,7 +102,7 @@ import { ProjectAttributes } from '../routes/projects/projects.model';
       </ul>
     </div>
 
-    <p class="shimmer section-heading">"productivity"</p>
+    <p class="shimmer section-heading">"productivity" tools</p>
     <div class="card"></div>
 
     <p class="shimmer section-heading">cool tools</p>
@@ -114,10 +117,8 @@ import { ProjectAttributes } from '../routes/projects/projects.model';
   ],
 })
 export default class UsesPageComponent implements OnInit {
-
   private readonly usesFilterFn: InjectContentFilesFilterFunction<ProjectAttributes> =
-    (contentFile) =>
-      !!contentFile.filename.includes('/src/content/uses/');
+    (contentFile) => !!contentFile.filename.includes('/src/content/uses/');
 
   uses = injectContentFiles<ProjectAttributes>(this.usesFilterFn);
 

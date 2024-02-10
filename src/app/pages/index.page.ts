@@ -1,18 +1,17 @@
-import { AfterViewInit, Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnInit, inject } from '@angular/core';
 import { CommonModule, NgForOf } from '@angular/common';
 import { injectContentFiles } from '@analogjs/content';
 import { InjectContentFilesFilterFunction } from '@analogjs/content/lib/inject-content-files';
 import { ProjectAttributes } from '../routes/projects/projects.model';
-import { CardComponent } from '../components/layout/card/card.component';
-import { ContactPageComponent } from '../components/layout/contact/contact.component';
+import { CardComponent } from '../core/layout/card/card.component';
+import { ContactPageComponent } from '../core/layout/contact/contact.component';
 import {
   ActivatedRoute,
-  NavigationEnd,
   Router,
   RouterModule,
   RouterOutlet,
 } from '@angular/router';
-import { RouteReuseStrategy } from '@angular/router';
+import { ScrollService } from '../core/services/scroll.service';
 
 @Component({
   selector: 'app-home',
@@ -31,10 +30,14 @@ import { RouteReuseStrategy } from '@angular/router';
         Feel free to check out my little corners of the internet & other
         projects below! Definitely reach out if you’d like to connect or
         collaborate – I’m currently on the lookout for new open-source
-        opportunities, so let’s chat! 💻🤝
+        opportunities, so
+        <a
+          [routerLink]="['/']"
+          fragment="contact"
+          routerLinkActive="router-link-active"
+          >let’s chat</a
+        >! 💻🤝
       </p>
-      <br />
-      <p>If you’re interested in learning more about me, I ramble on here.</p>
       <br />
       <p>
         <span class="blue bold">Interests</span>: #web dev #ui/ux #automation
@@ -73,10 +76,12 @@ import { RouteReuseStrategy } from '@angular/router';
     CardComponent,
     ContactPageComponent,
     RouterOutlet,
+    RouterModule,
   ],
 })
-export default class HomeComponent implements OnInit, AfterViewInit {
-  colors: string[] = ['#8FB6F2', '#C490FA', '#F48FDD', '#FEBB8E'];
+export default class HomeComponent implements OnInit {
+  private scrollService = inject(ScrollService);
+  router = inject(Router);
 
   private readonly projectsFilterFn: InjectContentFilesFilterFunction<ProjectAttributes> =
     (contentFile) =>
@@ -93,50 +98,37 @@ export default class HomeComponent implements OnInit, AfterViewInit {
       !!contentFile.attributes.featured;
 
   featuredBlogs = injectContentFiles<ProjectAttributes>(this.blogsFilterFn);
-
-  constructor(private route: ActivatedRoute, private router: Router) {}
-
   ngOnInit() {
     this.getContentMetadata();
+
     console.log(this.featuredBlogs);
   }
 
-  ngAfterViewInit(): void {
-    this.router.onSameUrlNavigation = 'reload';
-    this.router.events.subscribe((s) => {
-      if (s instanceof NavigationEnd) {
-        const tree = this.router.parseUrl(this.router.url);
-        if (tree.fragment) {
-          setTimeout(() => {
-            const element = document.querySelector('#' + tree.fragment);
-            if (element) {
-              element.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start',
-                inline: 'nearest',
-              });
-            }
-          }, 300);
-        }
-      }
-    });
-  }
-
   getContentMetadata() {
-    this.featuredProjects = this.featuredProjects.map(
-      (project: any, index: number) => {
+    this.featuredProjects = this.featuredProjects
+      .map((project: any, index: number) => {
         return {
           ...project,
           route: 'projects',
         };
-      }
-    );
+      })
+      .sort((a: any, b: any) => {
+        const priorityA = a.attributes.priority || Infinity;
+        const priorityB = b.attributes.priority || Infinity;
+        return priorityA - priorityB;
+      });
 
-    this.featuredBlogs = this.featuredBlogs.map((blog, index) => {
-      return {
-        ...blog,
-        route: 'blog',
-      };
-    });
+    this.featuredBlogs = this.featuredBlogs
+      .map((blog: any, index: any) => {
+        return {
+          ...blog,
+          route: 'blog',
+        };
+      })
+      .sort((a: any, b: any) => {
+        const dateA = new Date(a.attributes.date);
+        const dateB = new Date(b.attributes.date);
+        return dateB.getTime() - dateA.getTime();
+      });
   }
 }
