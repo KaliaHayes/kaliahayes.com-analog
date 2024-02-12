@@ -113,18 +113,18 @@ export default class BlogPostPageComponent implements OnInit {
   colors: string[] = ['#8FB6F2', '#C490FA', '#F48FDD', '#FEBB8E'];
 
   ngOnInit(): void {
-    // this.blogs = this.blogs.sort((a: any, b: any) => {
-    //   const priorityA = a.attributes.priority || Infinity;
-    //   const priorityB = b.attributes.priority || Infinity;
-    //   return priorityA - priorityB;
-    // });
-
-    this.blogs = this.blogs.map((blog, index) => {
-      return {
-        ...blog,
-        accentColor: this.colors[index % this.colors.length],
-      };
-    });
+    this.blogs = this.blogs
+      .map((blog, index) => {
+        return {
+          ...blog,
+          accentColor: this.colors[index % this.colors.length],
+        };
+      })
+      .sort((a: any, b: any) => {
+        const dateA = new Date(a.attributes.published);
+        const dateB = new Date(b.attributes.published);
+        return dateB.getTime() - dateA.getTime();
+      });
 
     this.blog$
       .pipe(

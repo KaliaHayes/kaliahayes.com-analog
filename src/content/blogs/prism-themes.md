@@ -1,7 +1,7 @@
 ---
 name: Prism.js Themes
 published: 03-08-2023
-description: the secret sauce
+description: CSS snippets for Prism.js themes
 slug: prism-themes
 featured: true
 tags: ["markdown", "prism.js", "resource", "themes"]

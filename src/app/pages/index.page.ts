@@ -126,8 +126,8 @@ export default class HomeComponent implements OnInit {
         };
       })
       .sort((a: any, b: any) => {
-        const dateA = new Date(a.attributes.date);
-        const dateB = new Date(b.attributes.date);
+        const dateA = new Date(a.attributes.published);
+        const dateB = new Date(b.attributes.published);
         return dateB.getTime() - dateA.getTime();
       });
   }
