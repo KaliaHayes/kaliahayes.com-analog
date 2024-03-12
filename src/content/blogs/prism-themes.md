@@ -4,11 +4,12 @@ published: 03-08-2023
 description: CSS snippets for Prism.js themes
 slug: prism-themes
 featured: true
+imageUrl: /imgs/prism-hero.png
 tags: ["markdown", "prism.js", "resource", "themes"]
 updated: 09-17-2023
 ---
 
-This is some `inline code`
+A small collection of <a href="https://prismjs.com/" target="_blank">Prism.js</a> themes. Feel free to use them in your projects!
 
 <mark>Laserwave</mark>
 

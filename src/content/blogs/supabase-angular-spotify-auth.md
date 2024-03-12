@@ -1,7 +1,8 @@
 ---
-name: "Flying High: An Angular v17 Guide to User Authentication, Management, and Social Sign in using Spotify OAuth and Supabase"
+name: "Supafy: An Angular v17 Guide to User Authentication, Management, and Spotify OAuth Social Login using Supabase"
 published: 02-09-2024
-description: A tutorial on building an Angular 17 application with Supabase, and adding authentication via Spotify OAuth using Supabase Social Login.
+description: A step by step guide on building an Angular 17 application with authentication via Spotify OAuth using Supabase Social Login
+imageUrl: /imgs/sb-hero.png
 slug: supabase-angular-spotify-auth
 featured: true
 tags: ["tutorial", "supabase", "angular", "spotify"]
@@ -16,30 +17,29 @@ Welcome to my brief yet comprehensive guide on getting started with Supabase, th
 - Gathering and displaying users’ Spotify data
 - Configuring Supabase Triggers for efficient database maintenance
 
-Being new to Supabase, I got my first introduction from a very helpful Supabase official blog: [Build a User Management App with Angular](https://supabase.com/docs/guides/getting-started/tutorials/with-angular?database-method=dashboard) which you may reference as needed! This blog post will take many items from the official Supabase post, but I will be adding my own flair as it fits to my projects’ scope. For example, while the Supabase tutorial is a great starting point, it’s not necessarily of the _Angular flavor_. And likewise, the Supabase tutorial implements Magic Link login, however, our Angular app will use Spotify OAuth for login!
+Being new to Supabase, I got my first introduction from a very helpful Supabase official blog: <a href="https://supabase.com/docs/guides/getting-started/tutorials/with-angular?database-method=dashboard" target="_blank">Build a User Management App with Angular</a> which you may reference as needed! This blog post will take many items from the official Supabase post, but I will be adding my own flair as it fits to my projects’ scope. For example, while the Supabase tutorial is a great starting point, it’s not necessarily of the _Angular flavor_. And likewise, the Supabase tutorial implements Magic Link login, however, our Angular app will use Spotify OAuth for login!
 
-You can find the source code for this project on my [supabase-angular-spotify-auth](https://github.com/KaliaHayes/supabase-angular-spotify-auth) GitHub Repo!
+You can find the source code for this project on my <a href="https://github.com/KaliaHayes/supabase-angular-spotify-auth" target="_blank">supabase-angular-spotify-auth</a> GitHub Repo!
 
 ## Base vs Base
-
-Until recently, I had defaulted to using [Firebase](https://firebase.google.com/) to handle my applications’ user management and storage - with great success! A driving factor for that was simply how well Firebase + Angular is documented, supported, and generally championed by the Angular community. However, as I continued to build more complex applications, such as [zeus.fm](http://zeus.fm), I found reasons to be curious about “alternatives solutions”, so to speak 😄.
+Until recently, I had defaulted to using <a href="https://firebase.google.com/" target="_blank">Firebase</a> to handle my applications’ user management and storage - with great success! A driving factor for that was simply how well Firebase + Angular is documented, supported, and generally championed by the Angular community. However, as I continued to build more complex applications, such as <a href="http://zeus.fm" target="_blank">zeus.fm</a>, I found reasons to be curious about “alternatives solutions”, so to speak😄.
 
 Specifically, I was interested in authenticating my users with Spotify’s OAuth. And while I did succeed in utilizing Firebase to handle this need by way of implementing Cloud Functions, I happened to stumble upon some info that had me looking towards Supabase’s way! 👀
 
-While Firebase provides countless user authentication sing-in methods that are built in and _just work_ without any fuss, I noticed that Supabase actually has even more options for [Social Login (OAuth)](https://supabase.com/docs/guides/auth/social-login), _including_ Spotify. So that brings me to right now - being a "supa fan" after having explored Supabase and many of it’s features!
+While Firebase provides countless user authentication sing-in methods that are built in and _just work_ without any fuss, I noticed that Supabase actually has even more options for <a href="https://supabase.com/docs/guides/auth/social-login" target="_blank">Social Login (OAuth)</a>, _including_ Spotify. So that brings me to right now - being a "supa fan" after having explored Supabase and many of it’s features!
 
 > Social Login (OAuth) is an open standard for authentication that allows users to log in to one website or application using their credentials from another website or application. OAuth allows users to grant third-party applications access to their online accounts without sharing their passwords.
-> — <cite>[Supabase - Social Login](https://supabase.com/docs/guides/auth/social-login)</cite>
+> — <cite><a href="https://supabase.com/docs/guides/auth/social-login" target="_blank">Supabase - Social Login</a></cite>
 
 ---
 
 ## Supabase Project Setup
 
-To begin, we’ll go ahead and set up a Supabase project. Feel free to reference the Supabase [official docs](https://supabase.com/docs/guides/getting-started) at any point to further your understanding! Likewise, I also recommend skimming through the Supabase official [Login with Spotify](https://supabase.com/docs/guides/auth/social-login/auth-spotify) tutorial.
+To begin, we’ll go ahead and set up a Supabase project. Feel free to reference the Supabase <a href="https://supabase.com/docs/guides/getting-started" target="_blank">official docs</a> at any point to further your understanding! Likewise, I also recommend skimming through the Supabase official <a href="https://supabase.com/docs/guides/auth/social-login/auth-spotify" target="_blank">Login with Spotify</a> tutorial.
 
 ### Create a Project
 
-1. [Create a new project](https://supabase.com/dashboard) in the Supabase Dashboard
+1. <a href="https://supabase.com/dashboard" target="_blank">Create a new project</a> in the Supabase Dashboard
 2. Enter your project details
 3. Wait for the new database to launch
 
@@ -128,7 +128,7 @@ This SQL script creates a `profiles` table your Supabase database with fields:
 
 Now that you have your `profiles` table, you are ready to insert data using the auto-generated API. We just need to get the Project URL and `anon` key from the API settings.
 
-1. Go to the [API Settings](https://supabase.com/dashboard/project/_/settings/api) page in the Dashboard
+1. Go to the <a href="https://supabase.com/dashboard/project/_/settings/api" target="_blank">API Settings</a> page in the Dashboard
 2. Find your Project `URL`, `anon`, and `service_role` keys on this page and save them for later
 
 ---
@@ -137,35 +137,33 @@ Now that you have your `profiles` table, you are ready to insert data using the
 
 Next up, we’ll go ahead and handle the Spotify Project creation. To enable Spotify Auth for your project, you need to set up a Spotify OAuth application and add the application credentials to your Supabase Dashboard.
 
-***Disclaimer**: I will be copying and pasting the exact steps from the Supabase official [Login with Spotify](https://supabase.com/docs/guides/auth/social-login/auth-spotify) tutorial up until the ‘Add login code to your client app’ step - we’ll handle that later in the tutorial!*
+***Disclaimer**: I will be copying and pasting the exact steps from the Supabase official <a href="https://supabase.com/docs/guides/auth/social-login/auth-spotify" target="_blank">Login with Spotify</a> tutorial up until the ‘Add login code to your client app’ step - we’ll handle that later in the tutorial!*
 
 Setting up Spotify logins for your application consists of 3 parts:
 
-1. Create and configure a Spotify Project and App on the [Spotify Developer Dashboard](https://developer.spotify.com/dashboard/)
-2. Add your Spotify `API Key` and `API Secret Key` to your [Supabase Project](https://supabase.com/dashboard)
-3. Add the login code to your [Supabase Client App](https://github.com/supabase/supabase-js)
+1. Create and configure a Spotify Project and App on the <a href="https://developer.spotify.com/dashboard/" target="_blank">Spotify Developer Dashboard</a>
+2. Add your Spotify `API Key` and `API Secret Key` to your <a href="https://supabase.com/dashboard" target="_blank">Supabase Project</a>
+3. Add the login code to your <a href="https://github.com/supabase/supabase-js" target="_blank">Supabase Client App</a>
 
 ### Access your Spotify Developer account
 ![sb-spotify-db](/imgs/sb-spotify.png)
 
-
-- Log into [Spotify](https://spotify.com/)
-- Access the [Spotify Developer Dashboard](https://developer.spotify.com/dashboard)
-
+- Log into <a href="https://spotify.com/" target="_blank">Spotify</a>
+- Access the <a href="https://developer.spotify.com/dashboard" target="_blank">Spotify Developer Dashboard</a>
 
 ### Find your callback URL
 
 The next step requires a callback URL, which looks like this: `https://<project-ref>.supabase.co/auth/v1/callback`
 
-- Go to your [Supabase Project Dashboard](https://supabase.com/dashboard)
+- Go to your <a href="https://supabase.com/dashboard" target="_blank">Supabase Project Dashboard</a>
 - Click on the `Authentication` icon in the left sidebar
 - Click on `Providers` under the Configuration section
 - Click on **Spotify** from the accordion list to expand and you'll find your **Redirect URL**, you can click `Copy` to copy it to the clipboard
 
 ### Create a Spotify OAuth app
 
-- Log into [Spotify](https://spotify.com/)
-- Go to the [Spotify Developer Dashboard](https://developer.spotify.com/dashboard)
+- Log into <a href="https://spotify.com/" target="_blank">Spotify</a>
+- Go to the <a href="https://developer.spotify.com/dashboard" target="_blank">Spotify Developer Dashboard</a>
 - Click `Create an App`
 - Type your `App name`
 - Type your `App description`
@@ -189,7 +187,7 @@ Under `Redirect URIs`:
 
 ### Enter your Spotify credentials into your Supabase project
 
-- Go to your [Supabase Project Dashboard](https://supabase.com/dashboard)
+- Go to your <a href="https://supabase.com/dashboard" target="_blank">Supabase Project Dashboard</a>
 - In the left sidebar, click the `Authentication` icon (near the top)
 - Click on `Providers` under the Configuration section
 - Click on **Spotify** from the accordion list to expand and turn **Spotify Enabled** to ON
@@ -200,7 +198,7 @@ Under `Redirect URIs`:
 
 ## Building an Angular 17 Application
 
-I will assume that you are already aware of Angular and all it’s features - but if not, you can learn more about building an Angular app by referencing the *revitalized* [official Angular docs](https://angular.dev/).
+I will assume that you are already aware of Angular and all it’s features - but if not, you can learn more about building an Angular app by referencing the *revitalized* <a href="https://angular.dev/" target="_blank">official Angular docs</a>.
 
 1. Use the Angular CLI to initialize a new Angular project
 
@@ -228,9 +226,9 @@ export const environment = {
 };
 ```
 
-***Note**: You can find your `supabaseUrl` and `supabaseKey` values by going to **Project Settings > Configuration > API.** These variables will be exposed on the browser, and that's completely fine since we have [Row Level Security](https://supabase.com/docs/guides/auth#row-level-security) enabled on our Database. You can find your Supabase Reference ID on **Project Settings > General***
+***Note**: You can find your `supabaseUrl` and `supabaseKey` values by going to **Project Settings > Configuration > API.** These variables will be exposed on the browser, and that's completely fine since we have <a href="https://supabase.com/docs/guides/auth#row-level-security" target="_blank">Row Level Security</a> enabled on our Database. You can find your Supabase Reference ID on **Project Settings > General***
 
-4. Update the `styles.css` by copying and pasting the css from the [source code](https://github.com/KaliaHayes/supabase-angular-spotify-auth/blob/main/src/styles.css)
+4. Update the `styles.css` by copying and pasting the css from the <a href="https://github.com/KaliaHayes/supabase-angular-spotify-auth/blob/main/src/styles.css" target="_blank">source code</a>
 
 ### Create our App Components and Service
 
@@ -255,7 +253,7 @@ ng g s supabase
 
 ### Configure the Supabase Service
 
-Now, the fun begins! We’ll begin by setting up our Supabase service. You may view the [source code](https://github.com/KaliaHayes/supabase-angular-spotify-auth/blob/main/src/app/services/supabase.service.ts) for our service, but keep in mind that the source code does not contain most of the in-line comments you will see below. 😄
+Now, the fun begins! We’ll begin by setting up our Supabase service. You may view the <a href="https://github.com/KaliaHayes/supabase-angular-spotify-auth/blob/main/src/app/services/supabase.service.ts" target="_blank">source code</a> for our service, but keep in mind that the source code does not contain most of the in-line comments you will see below. 😄
 
 First, add all necessary imports, interfaces, and define our service variables which we will use throughout the service:
 

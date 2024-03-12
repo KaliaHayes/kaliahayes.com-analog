@@ -1,8 +1,8 @@
 ---
 name: "Context Hunt: Your Personal Web Discovery Assistant"
-description: Search The Web Faster With Context Hunt
-link: "https://contexthunt.com"
-source: "https://github.com/KaliaHayes/context-hunt-ext-angular"
+description: Browse The Web Faster With Context Hunt
+# link: "https://contexthunt.com"
+# source: "https://github.com/KaliaHayes/context-hunt-ext-angular"
 imageUrl: /imgs/CH-Hero.png
 tags: ["Angular", "Chrome Extension", "Side Project"]
 slug: context-hunt
@@ -50,6 +50,6 @@ Behind the scenes, ContextHunt is a product of cutting-edge technology. It's bui
 
 ## ContextHunt Beta Program
 
-While ContextHunt is still in development, you can sign up for the beta program to be among the first to try it out. The beta program is a great opportunity to get a sneak peek at ContextHunt and provide valuable feedback to help shape the final product. Sign up today and start browsing smarter!
+While ContextHunt is still in development, I will be hosting a closed-beta for those who want to get early access to ContextHunt and help me iron out some of the kinks. More to come on that soon!
 
 <!-- In conclusion, ContextHunt is a game-changer for web browsing. It streamlines searches, personalizes browsing experiences, and makes the most of the web’s vast resources. With its powerful search capabilities, customizable options, and intuitive interface, Context Hunt is a must-have tool for anyone who spends time online. Try ContextHunt today and start browsing smarter! -->

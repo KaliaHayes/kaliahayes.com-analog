@@ -18,14 +18,10 @@ import { RouterModule } from '@angular/router';
         [style.border-color]="onHover ? content.accentColor : ''"
         [routerLink]="['/' + content.route + '/' + content.slug]"
       >
+        <img [src]="content.attributes?.imageUrl" alt="" />
         <p *ngIf="content.route === 'blog'" class="card-date">
           {{ content.attributes?.published | date : 'MMM d, y' }}
         </p>
-        <img
-          *ngIf="content.route === 'projects'"
-          [src]="content.attributes?.imageUrl"
-          alt=""
-        />
         <h5 class="card-title">
           {{ content.attributes?.name }}
         </h5>

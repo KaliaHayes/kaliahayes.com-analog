@@ -22,12 +22,12 @@ My portfolio is powered by Angular, a robust and versatile JavaScript framework 
 
 ### Analog
 
-More specifically, I used [Analog](https://analogjs.org/), the fullstack Angular meta-framework built by [Brandon Roberts](https://twitter.com/brandontroberts). Analog is Vite-powered, supports both Server-Side Rendering (SSR) and Static Site Generation (SSG), and utilizes File-based routing and API routes.
+More specifically, I used <a href="https://analogjs.org/" target="_blank">Analog</a>, the fullstack Angular meta-framework built by <a href="https://twitter.com/brandontroberts" target="_blank">Brandon Roberts</a>. Analog is Vite-powered, supports both Server-Side Rendering (SSR) and Static Site Generation (SSG), and utilizes File-based routing and API routes.
 
 > Similar to other meta-frameworks such as Next.JS, Nuxt, SvelteKit, Qwik City, and others, Analog provides a similar experience, building on top of Angular. <br>
-> — <cite>[Analogjs.org Introduction](https://analogjs.org/docs)</cite>
+> — <cite><a href="https://analogjs.org/docs" target="_blank">Analogjs.org Introduction</a></cite>
 
-Most of the pages on my portfolio website are rendered using Analog's markdown support. For example, all of the projects and blogs are written in markdown, and Analog automatically generates the corresponding pages using the provided `analog-markdown` component. Maintaining my project and blog files is a breeze, where each file sits in `src/content/projects` or `src/content/blogs` respectively. Feel free to take a look at my blog's [source code](https://github.com/KaliaHayes/kaliahayes.com-analog) to get a better look at the power of Analog!
+Most of the pages on my portfolio website are rendered using Analog's markdown support. For example, all of the projects and blogs are written in markdown, and Analog automatically generates the corresponding pages using the provided `analog-markdown` component. Maintaining my project and blog files is a breeze, where each file sits in `src/content/projects` or `src/content/blogs` respectively. Feel free to take a look at my blog's <a href="https://github.com/KaliaHayes/kaliahayes.com-analog" target="_blank">source code</a> to get a better look at the power of Analog!
 
 I have honestly enjoyed every minute of working with Analog, and look forward to diving even deeper into the framework and its capabilities. I highly recommend checking out Analog if you're interested in building a website with Angular! Check out the video below for a quick overview of Analog's features:
 
@@ -35,7 +35,7 @@ I have honestly enjoyed every minute of working with Analog, and look forward to
 
 ### Vercel
 
-I deployed my portfolio to [Vercel](https://vercel.com), a cloud platform for static sites and serverless functions. Vercel's intuitive interface and seamless integration with GitHub made deployment a breeze. Any time I push changes to my GitHub repository, Vercel automatically deploys the updated site. This functionality ensures that my portfolio is always up-to-date, reflecting my latest projects and skills.
+I deployed my portfolio to <a href="https://vercel.com" target="_blank">Vercel</a>, a cloud platform for static sites and serverless functions. Vercel's intuitive interface and seamless integration with GitHub made deployment a breeze. Any time I push changes to my GitHub repository, Vercel automatically deploys the updated site. This functionality ensures that my portfolio is always up-to-date, reflecting my latest projects and skills.
 
 ### Figma
 
@@ -49,7 +49,6 @@ Though, as mentioned above, Analog did wonders to streamline the creation of my 
 
 - Table of Contents
 - Custom Project/Blog Post layout, including the footer, social media links and pagination
-- Tag Filtering
 
-Again, feel free to reference my [source code](https://github.com/KaliaHayes/kaliahayes.com-analog) if you are interested in learning more about how I implemented these features.
+Again, feel free to reference my <a href="https://github.com/KaliaHayes/kaliahayes.com-analog" target="_blank">source code</a> if you are interested in learning more about how I implemented these features.
 As you explore my portfolio, I hope you enjoy the experience as much as I enjoyed creating it. Feel free to [reach out](/#contact) with any questions or comments – I'd love to hear from you!

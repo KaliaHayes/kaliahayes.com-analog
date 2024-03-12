@@ -22,10 +22,10 @@ Kolada breaks free from the conventional constraints of traditional dark themes.
 
 ## Creating Kolada
 
-Kolada was created using [Yo Code](https://code.visualstudio.com/api/get-started/your-first-extension), a Visual Studio Code extension generator. The extension was built using TypeScript, a superset of JavaScript that adds optional static typing to the language.
+Kolada was created using <a href="https://code.visualstudio.com/api/get-started/your-first-extension" target="_blank">Yo Code</a>, a Visual Studio Code extension generator. The extension was built using TypeScript, a superset of JavaScript that adds optional static typing to the language.
 
-To curate the perfect color palette, I leveraged [The VS Code Theme Editor](https://themes.vscode.one/) as a fully-stocked, robust starting point, then tweaked the colors to my liking by updating the `theme.json` file (and I'll continue to tweak the theme!).
+To curate the perfect color palette, I leveraged <a href="https://themes.vscode.one/" target="_blank">The VS Code Theme Editor</a> as a fully-stocked, robust starting point, then tweaked the colors to my liking by updating the `theme.json` file (and I'll continue to tweak the theme!).
 
 ## Installing Kolada
 
-If you're interested in installing Kolada, you can do so by visiting the [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=KaliaHayes.kolada). As always, feedback is welcome and appreciated! If you have any suggestions/tips, or want to be involved in the development and maintenance of Kolada - feel free to [reach out](/#contact) and we can chat!
+If you're interested in installing Kolada, you can do so by visiting the <a href="https://marketplace.visualstudio.com/items?itemName=KaliaHayes.kolada" target="_blank">Visual Studio Marketplace</a>. As always, feedback is welcome and appreciated! If you have any suggestions/tips, or want to be involved in the development and maintenance of Kolada - feel free to <a href="/#contact" target="_blank">reach out</a> and we can chat!

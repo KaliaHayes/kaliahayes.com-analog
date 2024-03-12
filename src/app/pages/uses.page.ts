@@ -9,15 +9,18 @@ import { ProjectAttributes } from '../routes/projects/projects.model';
   template: `
     <div class="card">
       <h1>Uses</h1>
+      <p>
+        A brief overview of all the tools and tech that power my day to day!
+      </p>
       <i>Inspired by Wes Bos</i>
     </div>
     <p class="shimmer section-heading">battlestation</p>
     <div class="card">
-      <img
+      <!-- <img
         src="https://preview.redd.it/xbu6grwpjks91.jpg?width=960&crop=smart&auto=webp&v=enabled&s=d247bcdba2d15fbd98e9e7ad999ff9f9d0db7898"
         alt="not my desk"
       />
-      <br />
+      <br /> -->
       <b>💻 Computer</b>
       <ul>
         <li>16" MacBook Pro 2021 M1 Max 64GB</li>
@@ -71,7 +74,7 @@ import { ProjectAttributes } from '../routes/projects/projects.model';
 
     <p class="shimmer section-heading">tech stack</p>
     <div class="card">
-      <img src="/imgs/VSC.png" alt="" />
+      <img src="/imgs/Kolada-Theme.png" alt="" />
       <b>Software & Tools</b>
       <ul>
         <li>Personal Development</li>
@@ -91,22 +94,31 @@ import { ProjectAttributes } from '../routes/projects/projects.model';
           </li>
           <li>Git</li>
           <li>HyperX Terminal</li>
+          <li>Firebase</li>
+          <li>Supabase</li>
+          <li>Figma</li>
+          <li>Adobe XD</li>
+          <li>Vercel</li>
+          <li>Screen Studio</li>
+          <li>Raindrop</li>
         </ul>
-      </ul>
-      <li>Profesional Development</li>
 
-      <ul>
-        <li>
-          BitBucket <span class="grey">(BB for my work development)</span>
-        </li>
+        <li>Profesional Development</li>
+        <ul>
+          <li>
+            BitBucket <span class="grey">(BB for my work development)</span>
+          </li>
+          <li>MongoDB</li>
+          <li>Java/Spring Boot</li>
+        </ul>
       </ul>
     </div>
 
-    <p class="shimmer section-heading">"productivity" tools</p>
+    <!-- <p class="shimmer section-heading">"productivity" tools</p>
     <div class="card"></div>
 
     <p class="shimmer section-heading">cool tools</p>
-    <div class="card"></div>
+    <div class="card"></div> -->
   `,
   styles: [
     `
