@@ -21,7 +21,7 @@ import { createLogger } from 'vite';
             routerLink="/"
             routerLinkActive="router-link-active"
           >
-            <img src="/imgs/Memoji.png" alt="Kalia Hayes's Memoji'" />
+            <img src="/imgs/Memoji-Smol.png" alt="Kalia Hayes's Memoji'" />
           </a>
         </div>
 
