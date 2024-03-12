@@ -71,17 +71,17 @@ import { createLogger } from 'vite';
       <div *ngIf="this.expanded()" class="mobile-nav-items">
         <a [routerLink]="['/projects']" routerLinkActive="router-link-active">
           <button type="button">
-            <p title="Projects">Projects</p>
+            <p title="Projects">projects</p>
           </button>
         </a>
-        <a [routerLink]="['/funstuff']" routerLinkActive="router-link-active">
+        <a [routerLink]="['/uses']" routerLinkActive="router-link-active">
           <button type="button">
-            <p title="Fun Stuff">Fun Stuff</p>
+            <p title="Uses">uses</p>
           </button>
         </a>
         <a [routerLink]="['/blog']" routerLinkActive="router-link-active">
           <button type="button">
-            <p title="Blog">Blog</p>
+            <p title="Blog">blog</p>
           </button>
         </a>
         <a
@@ -90,7 +90,7 @@ import { createLogger } from 'vite';
           routerLinkActive="router-link-active"
         >
           <button type="button">
-            <p title="Contact">Contact</p>
+            <p title="Contact">contact</p>
           </button>
         </a>
       </div>
