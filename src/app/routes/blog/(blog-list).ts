@@ -10,7 +10,6 @@ import { ProjectAttributes } from '../projects/projects.model';
   selector: 'app-blog-list',
   standalone: true,
   template: `
-    <!-- <div class="card">Blog Li$$$t</div> -->
     <div class="spacer-40"></div>
     <app-card
       *ngFor="let blog of blogs; let i = index"
