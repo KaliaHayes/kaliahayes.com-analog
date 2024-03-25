@@ -10,7 +10,6 @@ import { NgForOf } from '@angular/common';
   selector: 'app-projects-list',
   standalone: true,
   template: `
-    <!-- <div class="card">Projects Li$$$t</div> -->
     <div class="spacer-40"></div>
     <app-card
       *ngFor="let project of projects; let i = index"

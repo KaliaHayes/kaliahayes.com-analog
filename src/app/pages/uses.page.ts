@@ -9,10 +9,10 @@ import { ProjectAttributes } from '../routes/projects/projects.model';
   template: `
     <div class="card">
       <h1>Uses</h1>
-      <p>
+      <i>
         A brief overview of all the tools and tech that power my day to day!
-      </p>
-      <i>Inspired by Wes Bos</i>
+        Inspired by Wes Bos</i
+      >
     </div>
     <p class="shimmer section-heading">battlestation</p>
     <div class="card">
