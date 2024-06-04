@@ -2,7 +2,7 @@
 name: Kolada | Visual Studio Code Theme
 description: The Dark Mode Oasis for Visual Studio Code
 source: "https://marketplace.visualstudio.com/items?itemName=KaliaHayes.kolada"
-imageUrl: /imgs/Kolada-Theme.png
+imageUrl: /images/Kolada-Theme.png
 tags: ["vs code", "theme", "design", "dark mode"]
 slug: koldada
 featured: true
@@ -18,7 +18,7 @@ In the realm of coding, the tools you choose are not just utilities but integral
 
 Kolada breaks free from the conventional constraints of traditional dark themes. It introduces a vivid tropical palette featuring an array of captivating colors – shades of pink, blue, orange, purple, and green dance harmoniously against a solid black background, creating a visual masterpiece that transcends the ordinary.
 
-![Kolada Theme](/imgs/Kolada-SH.png)
+![Kolada Theme](/images/Kolada-SH.png)
 
 ## Creating Kolada
 

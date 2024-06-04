@@ -46,9 +46,7 @@ import { ScrollService } from '../core/services/scroll.service';
       </p>
       <br />
       <p>
-        <span class="purple bold">Tools & Tech</span>: #angular #typescript
-        #vercel #node #vscode #figma #adobe cc #photoshop #firebase #mongodb
-        #git #ionic #chart.js #analog #chrome api
+        <span class="purple bold">Tools & Tech</span>: #angular #react #typescript #javascript #vercel #node #vscode #figma #adobe cc #photoshop #supabase #firebase #mongodb #git #ionic #analog #chrome api
       </p>
     </div>
 

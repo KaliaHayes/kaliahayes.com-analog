@@ -2,7 +2,7 @@
 name: kaliahayes.com
 description: My personal portfolio website - never seen it before, have you?
 source: "https://github.com/KaliaHayes/kaliahayes.com-analog"
-imageUrl: /imgs/kaliahayes-com.png
+imageUrl: /images/kaliahayes-com.png
 tags: ["angular", "analog", "ssr", "ssg", "vercel", "figma"]
 slug: kaliahayes-com-personal-portfolio-website
 featured: true

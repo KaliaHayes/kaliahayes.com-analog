@@ -37,7 +37,7 @@ import { FooterComponent } from './core/layout/footer/footer.component';
         position: fixed;
         bottom: 20px;
         right: 20px;
-        font-size: 2em;
+        font-size: 1.5em;
         background: black;
         border: 1px solid;
       }

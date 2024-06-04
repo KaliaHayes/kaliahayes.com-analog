@@ -3,7 +3,7 @@ name: "Context Hunt: Your Personal Web Discovery Assistant"
 description: Browse The Web Faster With Context Hunt
 # link: "https://contexthunt.com"
 # source: "https://github.com/KaliaHayes/context-hunt-ext-angular"
-imageUrl: /imgs/CH-Hero.png
+imageUrl: /images/CH-Hero.png
 tags: ["Angular", "Chrome Extension", "Side Project"]
 slug: context-hunt
 featured: true
@@ -18,13 +18,13 @@ status: "In Development"
 
 In today's data-driven era, the ability to access and search the web efficiently is crucial. The challenge of information overload is a stark reality, emphasizing the need for swift and effective information retrieval. Enter ContextHunt, an innovative Chrome extension that goes beyond being just a tool – it serves as a strategic enhancement for web browsing.
 
-![ContextHunt Demo](/imgs/CH.png)
+![ContextHunt Demo](/images/CH.png)
 
 ContextHunt transforms the way users interact with web content by offering a seamless solution to the information retrieval challenge. Instead of the traditional process of navigating to a search engine, entering a query, and sifting through results, ContextHunt introduces a unique feature. Users can now effortlessly perform quick web searches on any webpage content directly from their context menus.
 
 This distinctive capability significantly elevates the browsing experience. Users can simply highlight the relevant content on a webpage, right-click, choose a search target from the context menu, and promptly discover the information they seek. ContextHunt streamlines the search process, making it more intuitive and saving valuable time in the pursuit of information.
 
-![ContextHunt Demo](/imgs/CH2.png)
+![ContextHunt Demo](/images/CH2.png)
 
 ## Dive into a World of Possibilities with ContextHunt
 
@@ -32,7 +32,7 @@ Unleash the full potential of your browsing experience with ContextHunt, a uniqu
 
 ContextHunt empowers users to personalize their browsing adventure by creating custom menu items that directly link to different websites. Whether you frequent news sites, social media platforms, or academic journals, ContextHunt ensures quick and seamless access to your preferred online destinations. All it takes is a link!
 
-![ContextHunt Demo 2](/imgs/CH3.png)
+![ContextHunt Demo 2](/images/CH3.png)
 
 ### Streamlined Search Organization
 
@@ -42,7 +42,7 @@ Take organization to the next level with ContextHfunt's unique feature – the a
 
 Fear not the complexities of menu management! ContextHunt simplifies the process with its user-friendly control panel. Easily create, edit, and manage your context menus, ensuring swift access to the sites and searches you use most frequently. The intuitive control panel caters to users of all tech backgrounds, making customization a breeze.
 
-![ContextHunt Control Panel](/imgs/CH4.png)
+![ContextHunt Control Panel](/images/CH4.png)
 
 ## Behind The Scenes
 

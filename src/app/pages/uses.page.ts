@@ -74,7 +74,7 @@ import { ProjectAttributes } from '../routes/projects/projects.model';
 
     <p class="shimmer section-heading">tech stack</p>
     <div class="card">
-      <img src="/imgs/Kolada-Theme.png" alt="" />
+      <img src="/images/Kolada-Theme.png" alt="" />
       <b>Software & Tools</b>
       <ul>
         <li>Personal Development</li>

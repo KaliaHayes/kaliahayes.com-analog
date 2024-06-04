@@ -12,13 +12,13 @@ import { Router, NavigationEnd } from '@angular/router';
       <p>Powered by Analog & Vercel</p>
       <div class="social-icons flex">
         <a href="https://github.com/KaliaHayes" target="_blank">
-          <img src="github-svgrepo-com.svg" alt="" />
+          <img src="/svgs/github-svgrepo-com.svg" alt="" />
         </a>
         <a href="https://www.linkedin.com/in/kaliahayes/" target="_blank">
-          <img src="linkedin-svgrepo-com.svg" alt="" />
+          <img src="/svgs/linkedin-svgrepo-com.svg" alt="" />
         </a>
         <a href="https://twitter.com/KaliaHayes" target="_blank">
-          <img src="twitter-svgrepo-com.svg" alt="" />
+          <img src="/svgs/twitter-svgrepo-com.svg" alt="" />
         </a>
       </div>
     </div>

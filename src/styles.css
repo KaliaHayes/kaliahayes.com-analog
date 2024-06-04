@@ -436,7 +436,7 @@ object {
 }
 
 /*
-Constrain imgs and videos to the parent width and preserve their intrinsic aspect ratio. (https://github.com/mozdevs/cssremedy/issues/14)
+Constrain images and videos to the parent width and preserve their intrinsic aspect ratio. (https://github.com/mozdevs/cssremedy/issues/14)
 */
 img,
 video {
@@ -1017,6 +1017,10 @@ button:focus-visible {
   margin-bottom: .5em;
 }
 
+.toc-mobile {
+  margin-bottom: 20px;
+}
+
 .toc ul,
 .toc-mobile ul {
   display: block;
@@ -1413,6 +1417,10 @@ ul li::before {
 @media screen and (max-width: 600px) {
   .nav-items {
     display: none;
+  }
+
+  .post-info {
+    display: contents !important;
   }
 
   .nav {
