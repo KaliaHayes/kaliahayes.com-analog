@@ -1,8 +1,8 @@
 ---
 name: "Supafy: An Angular v17 Guide to User Authentication, Management, and Spotify OAuth Social Login using Supabase"
-published: 02-09-2024
+published: 02/09/2024
 description: A step by step guide on building an Angular 17 application with authentication via Spotify OAuth using Supabase Social Login
-imageUrl: /imgs/sb-hero.png
+imageUrl: /images/sb-hero.png
 slug: supabase-angular-spotify-auth
 featured: true
 tags: ["tutorial", "supabase", "angular", "spotify"]
@@ -146,7 +146,7 @@ Setting up Spotify logins for your application consists of 3 parts:
 3. Add the login code to your <a href="https://github.com/supabase/supabase-js" target="_blank">Supabase Client App</a>
 
 ### Access your Spotify Developer account
-![sb-spotify-db](/imgs/sb-spotify.png)
+![sb-spotify-db](/images/sb-spotify.png)
 
 - Log into <a href="https://spotify.com/" target="_blank">Spotify</a>
 - Access the <a href="https://developer.spotify.com/dashboard" target="_blank">Spotify Developer Dashboard</a>
@@ -752,11 +752,11 @@ ng serve --o
 
 You will be met with this simple sign in screen - Go ahead and sign in and grant our application all access!
 
-![sb-signin](/imgs/sb-signin.png)
+![sb-signin](/images/sb-signin.png)
 
 Upon navigating back to our application, we now see a Spotify green colored alert, letting us know that we must first verify our email address:
 
-![sb-confirm](/imgs/sb-confirm.png)
+![sb-confirm](/images/sb-confirm.png)
 
 If you recall in our `Supabase` service, we are listening to our route queryParams to understand any Spotify related errors. Take at look at the current URL and you will see an error description that reads **_Unverified email with Spotify. A confirmation email has been sent to your Spotify email._** This is why we see our email verification message!
 
@@ -764,7 +764,7 @@ Go ahead and check your Spotify email inbox for the verification email, and clic
 
 You should now see our Account component, and all your Spotify profile info, including the elements we took directly from the Spotify API user profile response, `premium` and `country` .
 
-![sb-acct](/imgs/sb-acct.png)
+![sb-acct](/images/sb-acct.png)
 
 Navigating back to the **Supabase Dashboard > Authentication > Users** - you’ll see your first user - yourself! From here, your only option is to sign out… for now 😉
 

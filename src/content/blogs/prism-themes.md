@@ -1,19 +1,19 @@
 ---
 name: Prism.js Themes
-published: 03-08-2023
+published: 03/08/2023
 description: CSS snippets for Prism.js themes
 slug: prism-themes
 featured: true
-imageUrl: /imgs/prism-hero.png
+imageUrl: /images/prism-hero.png
 tags: ["markdown", "prism.js", "resource", "themes"]
-updated: 09-17-2023
+updated: 09/17/2023
 ---
 
 A small collection of <a href="https://prismjs.com/" target="_blank">Prism.js</a> themes. Feel free to use them in your projects!
 
 <mark>Laserwave</mark>
 
-![cotton-candy](/imgs/Laserwave.png)
+![cotton-candy](/images/Laserwave.png)
 
 ```css
 code[class*="language-"],
@@ -137,7 +137,7 @@ pre[class*="language-"] {
 
 <mark> Cotton Candy</mark>
 
-![cotton-candy](/imgs/Cotton-Candy.png)
+![cotton-candy](/images/Cotton-Candy.png)
 
 ```css
 code[class*="language-"],
@@ -278,7 +278,7 @@ pre[class*="language-"] {
 
 <mark>Kolada</mark>
 
-![Kolada](/imgs/Kolada.png)
+![Kolada](/images/Kolada.png)
 
 ```css
 code[class*="language-"],

@@ -3,7 +3,7 @@ name: "Zeus.fm: Lightning Fast Music Discovery for Spotify"
 description: Discover New Music with Zeus.fm - The Ultimate Music Discovery Platform
 link: "https://zeus.fm"
 # source: "https://zeus.fm"
-imageUrl: /imgs/z-playing-full-width-sq.png
+imageUrl: /images/z-playing-full-width-sq.png
 tags: ["Angular", "Spotify", "Side Project"]
 slug: zeus-fm
 featured: true
@@ -22,7 +22,7 @@ status: "In Beta"
 
 In the early days of Spotify, users enjoyed a feature called <a href="https://www.engadget.com/2015-01-22-spotifys-touch-preview.html" target="_blank">Touch Preview</a> that allowed them to press and hold a track to preview a 30-second snippet — a brief yet insightful glimpse that often determined whether the song would make it to their carefully curated playlists. This feature, though now retired, was an exciting and intuitive innovation that made discovering new music a breeze.
 
-![Spotify Touch Preview](/imgs/touch-preview.webp)
+![Spotify Touch Preview](/images/touch-preview.webp)
 
 ## The Revival: Music Discovery with Zeus FM
 
@@ -38,7 +38,7 @@ Whether you're an avid music enthusiast always on the hunt for your next favorit
 
 ### The Zeus FM Dashboard
 
-![Zeus.fm Dashboard](/imgs/zeus-fm-dashboard.png)
+![Zeus.fm Dashboard](/images/zeus-fm-dashboard.png)
 
 The <a href="http://zeus.fm/" target="_blank">Zeus.fm</a> Dashboard is the central hub of the platform, offering a comprehensive overview of your music discovery journey. As soon as you land on the dashboard, your personalized recommendations, new releases, and Discover Weekly playlist are instantly loaded. The dashboard also features a selection of Spotify’s curated playlists, providing a diverse range of musical styles and themes to explore. The intuitive design allows you to quickly listen to all songs and playlists right from this page, making the process of discovering new music as efficient as possible.
 
@@ -46,19 +46,19 @@ The <a href="http://zeus.fm/" target="_blank">Zeus.fm</a> Dashboard is the centr
 
 Upon hovering over each track tile, a 30-second preview of the song will automatically begin playing. Along with the audio preview, a convenient save button is also present, allowing users to easily add a track to their Spotify library for future listening. If the track belongs to an album, users will also see an option to navigate through the rest of the album directly from the track tile, providing an effortless way to explore more music from a particular artist or compilation.
 
-![Zeus.fm Track Preview](/imgs/zeus-track-preview.gif)
+![Zeus.fm Track Preview](/images/zeus-track-preview.gif)
 
 ### Continuous Playback and Enhanced Details
 
 Clicking on a track tile in <a href="http://zeus.fm/" target="_blank">Zeus.fm</a> not only initiates the audio playback but also ensures a seamless experience. Once a track is selected, the platform cleverly maintains continuous playback for the selected track. For albums and playlists, convenient bottom controls facilitate easy seeking through the track list, allowing users to effortlessly explore more content from their favorite artists or curated compilations.
 
-![Zeus.fm Controls](/imgs/zeus-fm-ctrls.png)
+![Zeus.fm Controls](/images/zeus-fm-ctrls.png)
 
 Moreover, Zeus.fm goes a step further in providing detailed insights into the current track, album, or playlist. After clicking on a track tile, the side menu dynamically reveals additional information, offering a comprehensive view of the music being enjoyed. If the track tile is for a single song, users will find details about the artist, the currently playing song, the associated album, and a selection of other recommended tracks. For albums and playlists, the side menu showcases the track list, allowing users to explore the entire compilation effortlessly.
 
 This combination of continuous playback and enriched details enhances the overall user experience, making <a href="http://zeus.fm/" target="_blank">Zeus.fm</a> not just a music discovery platform but a well-rounded companion for your musical exploration.
 
-![Zeus.fm Side Menu](/imgs/zeus-fm-side-menu2.png)
+![Zeus.fm Side Menu](/images/zeus-fm-side-menu2.png)
 
 ### Discover More with Powerful Search
 
@@ -66,7 +66,7 @@ Navigate the musical landscape effortlessly with Zeus.fm's robust search feature
 
 Once on the search page, users are presented with a comprehensive array of results, ranging from artists and tracks to albums and playlists. The intuitive interface ensures that you can quickly identify and select the exact item you're looking for. But the exploration doesn't stop there... so search away!
 
-![Zeus.fm Search](/imgs/zeus-fm-search.png)
+![Zeus.fm Search](/images/zeus-fm-search.png)
 
 ## The Tech Stack: Angular, the Spotify API, and Supabase
 

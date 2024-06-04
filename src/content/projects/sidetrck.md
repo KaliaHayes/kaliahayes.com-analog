@@ -2,7 +2,7 @@
 name: SideTrck App UI/UX Design
 description: A design prototype for a management tool to keep track of your ideas and side projects
 source: "https://angular.io"
-imageUrl: /imgs/SideTrck.png
+imageUrl: /images/SideTrck.png
 tags: ["design", "ui/ux", "idea"]
 slug: sidetrck
 featured: true
@@ -27,7 +27,7 @@ Upon launching the app, users are greeted by a clean and intuitive home screen. 
 
 You will find all projects below the list of favorites, with a tag list to quickly filter projects by tags, such as favorites, modible apps, web apps, and more.
 
-![ST Home Screen](/imgs/ST.png)
+![ST Home Screen](/images/ST.png)
 
 ### Project Overview
 
@@ -40,7 +40,7 @@ The idea behind each tab can be summarized as follows:
 - **Designs**: A place to store design mockups and wireframes for the project
 - **Board**: A place to manage the project, including tasks, deadlines, and other details
 
-![ST Project Overview](/imgs/ST2.png)
+![ST Project Overview](/images/ST2.png)
 
 ## Next Up?
 
