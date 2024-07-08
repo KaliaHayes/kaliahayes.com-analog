@@ -93,21 +93,21 @@ import { PostInfoComponent } from '../../core/layout/post-info/post-info.compone
             *ngIf="project.attributes?.link || project.attributes?.source"
             class="action-btns"
           >
-            <button class="pretty-btn" *ngIf="project.attributes.link">
-              <a
-                [href]="project.attributes.link"
-                target="_blank"
-                class="small white"
-                >Live
-              </a>
+            <button
+              class="pretty-btn"
+              *ngIf="project.attributes.link"
+              (click)="globalService.openLink(project.attributes.link)"
+              target="_blank"
+            >
+              <span class="small white">Live</span>
             </button>
-            <button class="pretty-btn" *ngIf="project.attributes.source">
-              <a
-                [href]="project.attributes.source"
-                target="_blank"
-                class="small white"
-                >Source
-              </a>
+            <button
+              class="pretty-btn"
+              *ngIf="project.attributes.source"
+              (click)="globalService.openLink(project.attributes.source)"
+              target="_blank"
+            >
+              <span class="small white">Source</span>
             </button>
           </div>
         </div>
@@ -152,7 +152,7 @@ import { PostInfoComponent } from '../../core/layout/post-info/post-info.compone
 export default class ProjectDetailsComponent implements OnInit {
   private readonly route = inject(ActivatedRoute);
   public readonly router = inject(Router);
-  private globalService = inject(GlobalService);
+  public globalService = inject(GlobalService);
   private scrollService = inject(ScrollService);
   showTechstack: boolean = false;
   toc$: BehaviorSubject<string> = new BehaviorSubject<string>('');

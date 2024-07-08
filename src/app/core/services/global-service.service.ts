@@ -21,6 +21,10 @@ export class GlobalService {
     return toc;
   }
 
+  openLink(url: string): void {
+    window.open(url, '_blank');
+  }
+
   back() {
     this.location.back();
   }
